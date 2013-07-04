@@ -58,7 +58,7 @@ describe Sepa::PaymentsInitiation::Pain00800104::CustomerDirectDebitInitiation d
       "payment_information[0].direct_debit_transaction_information[1].debtor.contact_details.email_address"                     => "samuel@adams.sepa.i.hope.this.works"
     }
 
-    xml = Sepa.to_xml(Sepa::PaymentsInitiation::Pain00800104::CustomerDirectDebitInitiation.new(props))
+    xml = Sepa::PaymentsInitiation::Pain00800104::CustomerDirectDebitInitiation.new(props).generate_xml
     expected = File.read(File.expand_path("../../../expected_customer_direct_debit_initiation.xml", __FILE__))
     xml.should == expected
   end

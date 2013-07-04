@@ -26,7 +26,7 @@ class Sepa::DirectDebitOrder
     end
 
     def to_xml
-      Sepa.to_xml(Sepa::PaymentsInitiation::Pain00800104::CustomerDirectDebitInitiation.new(to_properties))
+      Sepa::PaymentsInitiation::Pain00800104::CustomerDirectDebitInitiation.new(to_properties).generate_xml
     end
   end
 
