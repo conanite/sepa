@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Document xmlns="urn:iso:std:iso:20022:tech:xsd:pain.008.001.04" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:iso:std:iso:20022:tech:xsd:pain.008.001.04 pain.008.001.04.xsd">
+  <CstmrDrctDbtInitn>
+    <GrpHdr>
+      <MsgId>MSG0001</MsgId>
+      <CreDtTm>1992-02-28T18:30:00</CreDtTm>
+      <NbOfTxs>2</NbOfTxs>
+      <InitgPty>
+        <Nm>SOFTIFY SARL</Nm>
+        <PstlAdr>
+          <PstCd>75021</PstCd>
+          <TwnNm>Paris</TwnNm>
+          <Ctry>FR</Ctry>
+          <AdrLine>289, Livva de Getamire</AdrLine>
+        </PstlAdr>
+        <CtctDtls>
+          <Nm>M. Le Gérant</Nm>
+          <PhneNb>+33 111 111 111</PhneNb>
+          <EmailAdr>gerant@softify.bigbang</EmailAdr>
+        </CtctDtls>
+      </InitgPty>
+    </GrpHdr>
+    <PmtInf>
+      <PmtInfId>MONECOLE_PAYMENTS_20130703</PmtInfId>
+      <PmtMtd>DD</PmtMtd>
+      <ReqdColltnDt>2013-07-10</ReqdColltnDt>
+      <Cdtr>
+        <Nm>Mon École</Nm>
+        <PstlAdr>
+          <PstCd>75022</PstCd>
+          <TwnNm>Paris</TwnNm>
+          <Ctry>FR</Ctry>
+          <AdrLine>3, Livva de Getamire</AdrLine>
+        </PstlAdr>
+        <CtctDtls>
+          <Nm>M. le Directeur</Nm>
+          <PhneNb>+33 999 999 999</PhneNb>
+          <EmailAdr>directeur@monecole.softify.com</EmailAdr>
+        </CtctDtls>
+      </Cdtr>
+      <CdtrAcct>
+        <Id>
+          <IBAN>FRGOOGOOYADDA9999999</IBAN>
+        </Id>
+      </CdtrAcct>
+      <CdtrAgt>
+        <FinInstnId>
+          <BICFI>FRGGYELLOW99</BICFI>
+        </FinInstnId>
+      </CdtrAgt>
+      <DrctDbtTxInf>
+        <PmtId>
+          <EndToEndId>MONECOLE REG F13789 PVT 3</EndToEndId>
+        </PmtId>
+        <InstdAmt Ccy="EUR">1231.31</InstdAmt>
+        <DbtrAgt>
+          <FinInstnId>
+            <BICFI>FRZZPPKOOKOO</BICFI>
+          </FinInstnId>
+        </DbtrAgt>
+        <Dbtr>
+          <Nm>DALTON/CONANMR</Nm>
+          <PstlAdr>
+            <PstCd>30005</PstCd>
+            <TwnNm>RENNES</TwnNm>
+            <Ctry>FR</Ctry>
+            <AdrLine>64, Livva de Getamire</AdrLine>
+          </PstlAdr>
+          <CtctDtls>
+            <Nm>Conan DALTON</Nm>
+            <PhneNb>01234567890</PhneNb>
+            <EmailAdr>conan@dalton.sepa.i.hope.this.works</EmailAdr>
+          </CtctDtls>
+        </Dbtr>
+        <DbtrAcct>
+          <Id>
+            <IBAN>FRZIZIPAPARAZZI345789</IBAN>
+          </Id>
+        </DbtrAcct>
+      </DrctDbtTxInf>
+      <DrctDbtTxInf>
+        <PmtId>
+          <EndToEndId>MONECOLE REG F13790 PVT 3</EndToEndId>
+        </PmtId>
+        <InstdAmt Ccy="EUR">1732.32</InstdAmt>
+        <DbtrAgt>
+          <FinInstnId>
+            <BICFI>FRQQWIGGA</BICFI>
+          </FinInstnId>
+        </DbtrAgt>
+        <Dbtr>
+          <Nm>ADAMS/SAMUELMR</Nm>
+          <PstlAdr>
+            <PstCd>75048</PstCd>
+            <TwnNm>PARIS</TwnNm>
+            <Ctry>FR</Ctry>
+            <AdrLine>256, Livva de Getamire</AdrLine>
+          </PstlAdr>
+          <CtctDtls>
+            <Nm>Samuel ADAMS</Nm>
+            <PhneNb>09876543210</PhneNb>
+            <EmailAdr>samuel@adams.sepa.i.hope.this.works</EmailAdr>
+          </CtctDtls>
+        </Dbtr>
+        <DbtrAcct>
+          <Id>
+            <IBAN>FRQUIQUIWIGWAM947551</IBAN>
+          </Id>
+        </DbtrAcct>
+      </DrctDbtTxInf>
+    </PmtInf>
+  </CstmrDrctDbtInitn>
+</Document>
