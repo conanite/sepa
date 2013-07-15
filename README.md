@@ -1,6 +1,6 @@
 # Sepa
 
-An implementation of pain.008.001.04 CustomerDirectDebitInitiation.
+An implementation of pain.008.001.04 CustomerDirectDebitInitiation. WARNING: NO WARRANTY, USE AT YOUR OWN RISK AND PERIL. 
 
 I wanted to make it as easy as possible to define message types and components so this library will be easy to grow to implement the entire standard.
 

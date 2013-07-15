@@ -9,9 +9,10 @@ Gem::Specification.new do |gem|
   gem.name          = "sepa"
   gem.version       = Sepa::VERSION
   gem.authors       = ["Conan Dalton"]
+  gem.license       = 'MIT'
   gem.email         = ["conan@conandalton.net"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
+  gem.description   = %q{ Generate ISO20022 XML messages. Implements pain.008.001.04 CustomerDirectDebitInitiation for now. WARNING: NO WARRANTY, USE AT YOUR OWN RISK AND PERIL. }
+  gem.summary       = %q{ pain.008.001.04 CustomerDirectDebitInitiation ISO20022 XML. WARNING: NO WARRANTY, USE AT YOUR OWN RISK AND PERIL.  }
   gem.homepage      = "https://github.com/conanite/sepa"
 
   gem.add_dependency             'builder'

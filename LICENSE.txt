@@ -1,4 +1,4 @@
-Copyright (c) 2013 conanite
+Copyright (c) 2013 Conan Dalton
 
 MIT License
 
