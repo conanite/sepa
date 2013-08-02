@@ -1,3 +1,4 @@
+require "sepa/payments_initiation/category_purpose_choice"
 require "sepa/payments_initiation/pain00800104/service_level_choice"
 require "sepa/payments_initiation/local_instrument_choice"
 
