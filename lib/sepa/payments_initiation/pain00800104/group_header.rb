@@ -1,3 +1,7 @@
+require 'sepa/payments_initiation/branch_and_financial_institution_identification'
+require 'sepa/payments_initiation/authorisation'
+require 'sepa/payments_initiation/party_identification'
+
 class Sepa::PaymentsInitiation::Pain00800104::GroupHeader < Sepa::Base
   definition "Set of characteristics shared by all individual transactions included in the message."
   attribute :message_identification, "MsgId"

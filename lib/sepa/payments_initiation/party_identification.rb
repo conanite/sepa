@@ -1,3 +1,4 @@
+require "sepa/payments_initiation/contact_details"
 require "sepa/payments_initiation/postal_address"
 require "sepa/payments_initiation/party_choice_identification"
 

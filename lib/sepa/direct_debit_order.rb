@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+require 'sepa/payments_initiation/pain00800104/customer_direct_debit_initiation'
+
 class Sepa::DirectDebitOrder
 
   class Order

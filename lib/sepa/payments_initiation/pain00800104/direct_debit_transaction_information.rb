@@ -1,3 +1,5 @@
+require "sepa/payments_initiation/cash_account"
+require "sepa/payments_initiation/party_identification"
 require "sepa/payments_initiation/pain00800104/payment_identification"
 require "sepa/payments_initiation/pain00800104/payment_type_information"
 require "sepa/payments_initiation/pain00800104/direct_debit_transaction"
