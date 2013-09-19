@@ -82,6 +82,9 @@
         <PmtId>
           <EndToEndId>MONECOLE REG F13790 PVT 3</EndToEndId>
         </PmtId>
+        <PmtTpInf>
+          <SeqTp>FRST</SeqTp>
+        </PmtTpInf>
         <InstdAmt Ccy="EUR">1732.32</InstdAmt>
         <DbtrAgt>
           <FinInstnId>

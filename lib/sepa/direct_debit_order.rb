@@ -104,10 +104,10 @@ class Sepa::DirectDebitOrder
   end
 
   class DirectDebit
-    attr_accessor :debtor, :debtor_account, :end_to_end_id, :amount, :currency
+    attr_accessor :debtor, :debtor_account, :end_to_end_id, :amount, :currency, :sequence_type
 
-    def initialize debtor, debtor_account, end_to_end_id, amount, currency
-      @debtor, @debtor_account, @end_to_end_id, @amount, @currency = debtor, debtor_account, end_to_end_id, amount, currency
+    def initialize debtor, debtor_account, end_to_end_id, amount, currency, sequence_type
+      @debtor, @debtor_account, @end_to_end_id, @amount, @currency, @sequence_type = debtor, debtor_account, end_to_end_id, amount, currency, sequence_type
     end
 
     def to_properties prefix
@@ -118,6 +118,9 @@ class Sepa::DirectDebitOrder
       }
       hsh = hsh.merge debtor.to_properties("#{prefix}.debtor")
       hsh = hsh.merge debtor_account.to_properties("#{prefix}.debtor")
+      unless sequence_type == nil || sequence_type == ""
+        hsh = hsh.merge({ "#{prefix}.payment_type_information.sequence_type" => sequence_type })
+      end
       hsh
     end
   end

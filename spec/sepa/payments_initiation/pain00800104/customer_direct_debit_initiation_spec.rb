@@ -44,6 +44,7 @@ describe Sepa::PaymentsInitiation::Pain00800104::CustomerDirectDebitInitiation d
       "payment_information[0].direct_debit_transaction_information[0].debtor.contact_details.email_address"                     => "conan@dalton.sepa.i.hope.this.works",
       "payment_information[0].direct_debit_transaction_information[0].debtor_account.identification.iban"                       => "FRZIZIPAPARAZZI345789",
       "payment_information[0].direct_debit_transaction_information[1].payment_identification.end_to_end_identification"         => "MONECOLE REG F13790 PVT 3",
+      "payment_information[0].direct_debit_transaction_information[1].payment_type_information.sequence_type"                   => "FRST",
       "payment_information[0].direct_debit_transaction_information[1].instructed_amount"                                        => "1732.32",
       "payment_information[0].direct_debit_transaction_information[1].instructed_amount_currency"                               => "EUR",
       "payment_information[0].direct_debit_transaction_information[1].debtor_agent.financial_institution_identification.bic_fi" => "FRQQWIGGA",
