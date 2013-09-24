@@ -12,12 +12,16 @@ module Sepa
       result
     end
 
+    def empty?
+      false
+    end
+
     def to_xml builder
       self.class.attribute_defs.each do |name, meta|
         item = self.send(name)
         options = meta[:options] || { }
         attributes = build_xml_attributes options[:attributes]
-        next if item == nil
+        next if item == nil || (item.is_a?(Sepa::Base) && item.empty?)
         if meta[:type] == :string
           builder.__send__(meta[:tag], item, attributes)
         elsif meta[:type] == :[]
