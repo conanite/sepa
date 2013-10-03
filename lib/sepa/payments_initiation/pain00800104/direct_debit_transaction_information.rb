@@ -12,7 +12,7 @@ class Sepa::PaymentsInitiation::Pain00800104::DirectDebitTransactionInformation 
   attribute :payment_type_information      , "PmtTpInf"       , Sepa::PaymentsInitiation::Pain00800104::PaymentTypeInformation
   attribute :instructed_amount             , "InstdAmt"       , :string, nil, :attributes => { :Ccy => :instructed_amount_currency }
   attribute :charge_bearer                 , "ChrgBr"
-  attribute :direct_debit_transation       , "DrctDbtTx"      , Sepa::PaymentsInitiation::Pain00800104::DirectDebitTransaction
+  attribute :direct_debit_transaction      , "DrctDbtTx"      , Sepa::PaymentsInitiation::Pain00800104::DirectDebitTransaction
   attribute :ultimate_creditor             , "UltmtCdtr"      , Sepa::PaymentsInitiation::PartyIdentification
   attribute :debtor_agent                  , "DbtrAgt"        , Sepa::PaymentsInitiation::BranchAndFinancialInstitutionIdentification
   attribute :debtor_agent_account          , "DbtrAgtAcct"    , Sepa::PaymentsInitiation::CashAccount

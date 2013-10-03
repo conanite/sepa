@@ -104,10 +104,10 @@ class Sepa::DirectDebitOrder
   end
 
   class DirectDebit
-    attr_accessor :debtor, :debtor_account, :end_to_end_id, :amount, :currency, :sequence_type
+    attr_accessor :debtor, :debtor_account, :end_to_end_id, :amount, :currency, :sequence_type, :mandate_identification
 
-    def initialize debtor, debtor_account, end_to_end_id, amount, currency, sequence_type
-      @debtor, @debtor_account, @end_to_end_id, @amount, @currency, @sequence_type = debtor, debtor_account, end_to_end_id, amount, currency, sequence_type
+    def initialize debtor, debtor_account, end_to_end_id, amount, currency, sequence_type, mandate_identification
+      @debtor, @debtor_account, @end_to_end_id, @amount, @currency, @sequence_type, @mandate_identification = debtor, debtor_account, end_to_end_id, amount, currency, sequence_type, mandate_identification
     end
 
     def to_properties prefix
@@ -120,6 +120,9 @@ class Sepa::DirectDebitOrder
       hsh = hsh.merge debtor_account.to_properties("#{prefix}.debtor")
       unless sequence_type == nil || sequence_type == ""
         hsh = hsh.merge({ "#{prefix}.payment_type_information.sequence_type" => sequence_type })
+      end
+      unless mandate_identification == nil || mandate_identification == ""
+        hsh = hsh.merge({ "#{prefix}.direct_debit_transaction.mandate_related_information.mandate_identification" => mandate_identification })
       end
       hsh
     end

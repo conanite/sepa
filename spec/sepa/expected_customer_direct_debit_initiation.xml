@@ -53,6 +53,11 @@
           <EndToEndId>MONECOLE REG F13789 PVT 3</EndToEndId>
         </PmtId>
         <InstdAmt Ccy="EUR">1231.31</InstdAmt>
+        <DrctDbtTx>
+          <MndtRltdInf>
+            <MndtId>mandate-id-0</MndtId>
+          </MndtRltdInf>
+        </DrctDbtTx>
         <DbtrAgt>
           <FinInstnId>
             <BICFI>FRZZPPKOOKOO</BICFI>
@@ -86,6 +91,11 @@
           <SeqTp>FRST</SeqTp>
         </PmtTpInf>
         <InstdAmt Ccy="EUR">1732.32</InstdAmt>
+        <DrctDbtTx>
+          <MndtRltdInf>
+            <MndtId>mandate-id-1</MndtId>
+          </MndtRltdInf>
+        </DrctDbtTx>
         <DbtrAgt>
           <FinInstnId>
             <BICFI>FRQQWIGGA</BICFI>
