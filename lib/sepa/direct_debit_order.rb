@@ -4,6 +4,16 @@ require 'sepa/payments_initiation/pain00800104/customer_direct_debit_initiation'
 
 class Sepa::DirectDebitOrder
 
+  module Helper
+    def blank? item
+      item == nil || blank_string?(item)
+    end
+
+    def blank_string? item
+      item.is_a?(String) && item.strip.length == 0
+    end
+  end
+
   class Order
     attr_accessor :message_id, :initiating_party, :creditor_payments
 
@@ -43,6 +53,7 @@ class Sepa::DirectDebitOrder
   end
 
   class Party
+    include Helper
     attr_accessor :name, :address_line_1, :address_line_2, :postcode, :town, :country, :contact_name, :contact_phone, :contact_email
 
     def initialize name, address_line_1, address_line_2, postcode, town, country, contact_name, contact_phone, contact_email
@@ -51,19 +62,15 @@ class Sepa::DirectDebitOrder
     end
 
     def to_properties prefix, opts
-      hsh = {
-        "#{prefix}.name"                                              => name,
-        "#{prefix}.postal_address.address_line[0]"                    => address_line_1,
-        "#{prefix}.postal_address.post_code"                          => postcode,
-        "#{prefix}.postal_address.town_name"                          => town,
-        "#{prefix}.postal_address.country"                            => country,
-        "#{prefix}.contact_details.name"                              => contact_name,
-        "#{prefix}.contact_details.phone_number"                      => contact_phone,
-        "#{prefix}.contact_details.email_address"                     => contact_email,
-      }
-
-      hsh["#{prefix}.postal_address.address_line[1]"] = address_line_2 if address_line_2
-
+      hsh = { "#{prefix}.name" => name }
+      hsh["#{prefix}.postal_address.address_line[0]"] = address_line_1 unless blank? address_line_1
+      hsh["#{prefix}.postal_address.address_line[1]"] = address_line_2 unless blank? address_line_2
+      hsh["#{prefix}.postal_address.post_code"]       = postcode       unless blank? postcode
+      hsh["#{prefix}.postal_address.town_name"]       = town           unless blank? town
+      hsh["#{prefix}.postal_address.country"]         = country        unless blank? country
+      hsh["#{prefix}.contact_details.name"]           = contact_name   unless blank? contact_name
+      hsh["#{prefix}.contact_details.phone_number"]   = contact_phone  unless blank? contact_phone
+      hsh["#{prefix}.contact_details.email_address"]  = contact_email  unless blank? contact_email
       hsh
     end
   end

@@ -46,4 +46,11 @@ describe Sepa::DirectDebitOrder do
     expected.force_encoding(Encoding::UTF_8)
     xml.should == expected
   end
+
+  it "should not produce empty address elements" do
+    debtor = Sepa::DirectDebitOrder::Party.new "M Conan Dalton", "", nil, "", "", nil, nil, "", ""
+    props = debtor.to_properties "x", { }
+    props["x.name"].should == "M Conan Dalton"
+    props.keys.length.should == 1
+  end
 end
