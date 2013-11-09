@@ -13,9 +13,10 @@ class Sepa::DirectDebitOrder
 
     def to_properties
       hsh = {
-        "group_header.message_identification"                             => message_id,
-        "group_header.creation_date_time"                                 => Time.now,
-        "group_header.number_of_transactions"                             => creditor_payments.inject(0) { |sum, cp| sum + cp.number_of_transactions },
+        "group_header.message_identification"  => message_id,
+        "group_header.creation_date_time"      => Time.now,
+        "group_header.number_of_transactions"  => creditor_payments.inject(0) { |sum, cp| sum + cp.number_of_transactions },
+        "group_header.control_sum"             => creditor_payments.inject(0) { |sum, cp| sum + cp.control_sum            },
       }
 
       hsh = hsh.merge initiating_party.to_properties("group_header.initiating_party")
@@ -70,6 +71,10 @@ class Sepa::DirectDebitOrder
 
     def number_of_transactions
       direct_debits.length
+    end
+
+    def control_sum
+      direct_debits.inject(0) { |sum, dd| sum + dd.amount }
     end
 
     def to_properties prefix
@@ -129,4 +134,3 @@ class Sepa::DirectDebitOrder
   end
 
 end
-
