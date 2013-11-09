@@ -21,7 +21,16 @@ class Sepa::DirectDebitOrder
 
       hsh = hsh.merge initiating_party.to_properties("group_header.initiating_party", opts)
 
-      creditor_payments.each_with_index { |cp, i|
+      cps = []
+      if opts[:pain_008_001_version] == "02"
+        creditor_payments.each do |creditor_payment|
+          creditor_payment.collect_by_sequence_type { |cp| cps << cp }
+        end
+      else
+        cps = creditor_payments
+      end
+
+      cps.each_with_index { |cp, i|
         hsh = hsh.merge(cp.to_properties("payment_information[#{i}]", opts))
       }
 
@@ -29,7 +38,7 @@ class Sepa::DirectDebitOrder
     end
 
     def to_xml opts={ }
-      Sepa::PaymentsInitiation::Pain00800104::CustomerDirectDebitInitiation.new(to_properties opts).generate_xml
+      Sepa::PaymentsInitiation::Pain00800104::CustomerDirectDebitInitiation.new(to_properties opts).generate_xml(opts)
     end
   end
 
@@ -61,12 +70,33 @@ class Sepa::DirectDebitOrder
 
   class CreditorPayment
     attr_accessor :creditor, :creditor_account, :id, :collection_date
-    attr_accessor :direct_debits
+    attr_accessor :direct_debits, :sequence_type
 
     def initialize creditor, creditor_account, id, collection_date, direct_debits
       @creditor, @creditor_account = creditor, creditor_account
       @id, @collection_date = id, collection_date
       @direct_debits = direct_debits
+    end
+
+    # this is only called for V02, in which case SequenceType is mandatory
+    def collect_by_sequence_type
+      seq_types = {
+        "FRST" => [],
+        "RCUR" => [],
+        "FNAL" => [],
+        "OOFF" => []
+      }
+
+      direct_debits.each do |dd|
+        seq_types[dd.sequence_type] << dd
+      end
+
+      seq_types.each do |seq_type, dds|
+        next if dds.empty?
+        ncp = CreditorPayment.new(creditor, creditor_account, "#{id}_#{seq_type}", collection_date, dds)
+        ncp.sequence_type = seq_type
+        yield ncp
+      end
     end
 
     def number_of_transactions
@@ -89,7 +119,7 @@ class Sepa::DirectDebitOrder
       }
 
       if opts[:pain_008_001_version] == "02"
-        hsh = hsh["#{prefix}.payment_type_information.sequence_type"]
+        hsh["#{prefix}.payment_type_information.sequence_type"] = sequence_type
       end
 
       hsh = hsh.merge creditor.to_properties("#{prefix}.creditor", opts)
@@ -128,15 +158,15 @@ class Sepa::DirectDebitOrder
         "#{prefix}.payment_identification.end_to_end_identification"         => end_to_end_id,
         "#{prefix}.instructed_amount"                                        => ("%.2f" % amount),
         "#{prefix}.instructed_amount_currency"                               => "EUR",
+        "#{prefix}.direct_debit_transaction.mandate_related_information.mandate_identification" => mandate_identification
       }
       hsh = hsh.merge debtor.to_properties("#{prefix}.debtor", opts)
       hsh = hsh.merge debtor_account.to_properties("#{prefix}.debtor", opts)
-      unless sequence_type == nil || sequence_type == ""
-        hsh = hsh.merge({ "#{prefix}.payment_type_information.sequence_type" => sequence_type })
+
+      if opts[:pain_008_001_version] == "04"
+        hsh["#{prefix}.payment_type_information.sequence_type"] = sequence_type
       end
-      unless mandate_identification == nil || mandate_identification == ""
-        hsh = hsh.merge({ "#{prefix}.direct_debit_transaction.mandate_related_information.mandate_identification" => mandate_identification })
-      end
+
       hsh
     end
   end

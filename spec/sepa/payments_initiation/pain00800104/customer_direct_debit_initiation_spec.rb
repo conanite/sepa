@@ -4,9 +4,8 @@ require "spec_helper"
 
 describe Sepa::PaymentsInitiation::Pain00800104::CustomerDirectDebitInitiation do
 
-  it "should produce xml corresponding to the given inputs" do
-    props = {
-      "group_header.message_identification"                                    => "MSG0001",
+  let(:props) {
+    { "group_header.message_identification"                                    => "MSG0001",
       "group_header.creation_date_time"                                        => "1992-02-28T18:30:00",
       "group_header.number_of_transactions"                                    => "2",
       "group_header.control_sum"                                               => "2963.63",
@@ -65,9 +64,19 @@ describe Sepa::PaymentsInitiation::Pain00800104::CustomerDirectDebitInitiation d
       "payment_information[0].direct_debit_transaction_information[1].debtor.contact_details.phone_number"                                         => "09876543210",
       "payment_information[0].direct_debit_transaction_information[1].debtor.contact_details.email_address"                                        => "samuel@adams.sepa.i.hope.this.works"
     }
+  }
 
-    xml = Sepa::PaymentsInitiation::Pain00800104::CustomerDirectDebitInitiation.new(props).generate_xml
-    expected = File.read(File.expand_path("../../../expected_customer_direct_debit_initiation_v04.xml", __FILE__))
+  it "should raise an error unless the version is '02' or '04'" do
+    pain = Sepa::PaymentsInitiation::Pain00800104::CustomerDirectDebitInitiation.new(props)
+    expect { pain.generate_xml(pain_008_001_version: '2') }.to raise_error
+    expect { pain.generate_xml(pain_008_001_version: 2) }.to raise_error
+    expect { pain.generate_xml(pain_008_001_version: "") }.to raise_error
+    expect { pain.generate_xml({ }) }.to raise_error
+  end
+
+  it "should produce xml corresponding to the given inputs" do
+    xml = Sepa::PaymentsInitiation::Pain00800104::CustomerDirectDebitInitiation.new(props).generate_xml(pain_008_001_version: '04')
+    expected = File.read(File.expand_path("../../../expected-simple.xml", __FILE__))
     expected.force_encoding(Encoding::UTF_8)
     xml.should == expected
   end
