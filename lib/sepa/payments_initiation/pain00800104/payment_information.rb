@@ -19,4 +19,3 @@ class Sepa::PaymentsInitiation::Pain00800104::PaymentInformation < Sepa::Base
   attribute :creditor_scheme_identification      , "CdtrSchmeId" , Sepa::PaymentsInitiation::PartyIdentification
   attribute :direct_debit_transaction_information, "DrctDbtTxInf", :[], Sepa::PaymentsInitiation::Pain00800104::DirectDebitTransactionInformation
 end
-

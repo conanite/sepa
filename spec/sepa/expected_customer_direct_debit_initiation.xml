@@ -24,6 +24,8 @@
     <PmtInf>
       <PmtInfId>MONECOLE_PAYMENTS_20130703</PmtInfId>
       <PmtMtd>DD</PmtMtd>
+      <NbOfTxs>2</NbOfTxs>
+      <CtrlSum>2963.63</CtrlSum>
       <ReqdColltnDt>2013-07-10</ReqdColltnDt>
       <Cdtr>
         <Nm>Mon École</Nm>

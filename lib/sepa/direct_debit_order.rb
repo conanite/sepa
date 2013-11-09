@@ -79,9 +79,11 @@ class Sepa::DirectDebitOrder
 
     def to_properties prefix
       hsh = {
-        "#{prefix}.payment_information_identification"                         => id,
-        "#{prefix}.payment_method"                                             => "DD",
-        "#{prefix}.requested_collection_date"                                  => collection_date
+        "#{prefix}.payment_information_identification"  => id,
+        "#{prefix}.payment_method"                      => "DD",
+        "#{prefix}.requested_collection_date"           => collection_date,
+        "#{prefix}.number_of_transactions"              => number_of_transactions,
+        "#{prefix}.control_sum"                         => control_sum
       }
 
       hsh = hsh.merge creditor.to_properties("#{prefix}.creditor")
