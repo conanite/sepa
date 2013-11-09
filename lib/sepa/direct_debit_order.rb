@@ -124,7 +124,8 @@ class Sepa::DirectDebitOrder
         "#{prefix}.payment_method"                                 => "DD",
         "#{prefix}.requested_collection_date"                      => collection_date,
         "#{prefix}.number_of_transactions"                         => number_of_transactions,
-        "#{prefix}.control_sum"                                    => control_sum
+        "#{prefix}.control_sum"                                    => control_sum,
+        "#{prefix}.charge_bearer"                                  => "SLEV"
       }
 
       if opts[:pain_008_001_version] == "02"

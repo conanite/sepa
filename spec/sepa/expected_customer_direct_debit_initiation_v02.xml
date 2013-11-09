@@ -60,6 +60,7 @@
           <BICFI>FRGGYELLOW99</BICFI>
         </FinInstnId>
       </CdtrAgt>
+      <ChrgBr>SLEV</ChrgBr>
       <DrctDbtTxInf>
         <PmtId>
           <EndToEndId>MONECOLE REG F13790 PVT 3</EndToEndId>
@@ -170,6 +171,7 @@
           <BICFI>FRGGYELLOW99</BICFI>
         </FinInstnId>
       </CdtrAgt>
+      <ChrgBr>SLEV</ChrgBr>
       <DrctDbtTxInf>
         <PmtId>
           <EndToEndId>MONECOLE REG F13789 PVT 3</EndToEndId>
