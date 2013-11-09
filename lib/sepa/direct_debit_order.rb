@@ -86,6 +86,8 @@ class Sepa::DirectDebitOrder
     end
 
     # this is only called for V02, in which case SequenceType is mandatory
+    # necessary because each PaymentInformation container contains a single SequenceType element (inside PaymentTypeInformation)
+    # whereas in V04, there is one SequenceType element per DirectDebitTransactionInformation
     def collect_by_sequence_type
       seq_types = {
         "FRST" => [],
