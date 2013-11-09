@@ -26,7 +26,7 @@ describe Sepa::DirectDebitOrder do
     order = Sepa::DirectDebitOrder::Order.new "MSG0001", initiator, [payment]
 
     xml = order.to_xml
-    expected = File.read(File.expand_path("../expected_customer_direct_debit_initiation.xml", __FILE__))
+    expected = File.read(File.expand_path("../expected_customer_direct_debit_initiation_v04.xml", __FILE__))
     expected.force_encoding(Encoding::UTF_8)
     xml.should == expected
   end
