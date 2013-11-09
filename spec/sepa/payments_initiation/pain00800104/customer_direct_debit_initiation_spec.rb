@@ -63,7 +63,7 @@ describe Sepa::PaymentsInitiation::Pain00800104::CustomerDirectDebitInitiation d
 
     xml = Sepa::PaymentsInitiation::Pain00800104::CustomerDirectDebitInitiation.new(props).generate_xml
     expected = File.read(File.expand_path("../../../expected_customer_direct_debit_initiation.xml", __FILE__))
+    expected.force_encoding(Encoding::UTF_8)
     xml.should == expected
   end
 end
-
