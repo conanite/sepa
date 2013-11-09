@@ -26,6 +26,14 @@
       <PmtMtd>DD</PmtMtd>
       <NbOfTxs>2</NbOfTxs>
       <CtrlSum>2963.63</CtrlSum>
+      <PmtTpInf>
+        <SvcLvl>
+          <Cd>SEPA</Cd>
+        </SvcLvl>
+        <LclInstrm>
+          <Cd>CORE</Cd>
+        </LclInstrm>
+      </PmtTpInf>
       <ReqdColltnDt>2013-07-10</ReqdColltnDt>
       <Cdtr>
         <Nm>Mon École</Nm>

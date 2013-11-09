@@ -6,7 +6,7 @@ class Sepa::PaymentsInitiation::Pain00800104::PaymentInformation < Sepa::Base
   attribute :batch_booking                       , "BtchBookg"
   attribute :number_of_transactions              , "NbOfTxs"
   attribute :control_sum                         , "CtrlSum"
-  attribute :payment_type_information            , "PmtTpInf"
+  attribute :payment_type_information            , "PmtTpInf"    , Sepa::PaymentsInitiation::Pain00800104::PaymentTypeInformation
   attribute :requested_collection_date           , "ReqdColltnDt", Date
   attribute :creditor                            , "Cdtr"        , Sepa::PaymentsInitiation::PartyIdentification
   attribute :creditor_account                    , "CdtrAcct"    , Sepa::PaymentsInitiation::CashAccount

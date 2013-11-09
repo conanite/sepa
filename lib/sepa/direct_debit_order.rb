@@ -11,7 +11,7 @@ class Sepa::DirectDebitOrder
       @message_id, @initiating_party, @creditor_payments = message_id, initiating_party, creditor_payments
     end
 
-    def to_properties
+    def to_properties opts
       hsh = {
         "group_header.message_identification"  => message_id,
         "group_header.creation_date_time"      => Time.now,
@@ -19,17 +19,17 @@ class Sepa::DirectDebitOrder
         "group_header.control_sum"             => creditor_payments.inject(0) { |sum, cp| sum + cp.control_sum            },
       }
 
-      hsh = hsh.merge initiating_party.to_properties("group_header.initiating_party")
+      hsh = hsh.merge initiating_party.to_properties("group_header.initiating_party", opts)
 
       creditor_payments.each_with_index { |cp, i|
-        hsh = hsh.merge(cp.to_properties("payment_information[#{i}]"))
+        hsh = hsh.merge(cp.to_properties("payment_information[#{i}]", opts))
       }
 
       hsh
     end
 
-    def to_xml
-      Sepa::PaymentsInitiation::Pain00800104::CustomerDirectDebitInitiation.new(to_properties).generate_xml
+    def to_xml opts={ }
+      Sepa::PaymentsInitiation::Pain00800104::CustomerDirectDebitInitiation.new(to_properties opts).generate_xml
     end
   end
 
@@ -41,7 +41,7 @@ class Sepa::DirectDebitOrder
       @contact_name, @contact_phone, @contact_email = contact_name, contact_phone, contact_email
     end
 
-    def to_properties prefix
+    def to_properties prefix, opts
       hsh = {
         "#{prefix}.name"                                              => name,
         "#{prefix}.postal_address.address_line[0]"                    => address_line_1,
@@ -77,20 +77,26 @@ class Sepa::DirectDebitOrder
       direct_debits.inject(0) { |sum, dd| sum + dd.amount }
     end
 
-    def to_properties prefix
+    def to_properties prefix, opts
       hsh = {
-        "#{prefix}.payment_information_identification"  => id,
-        "#{prefix}.payment_method"                      => "DD",
-        "#{prefix}.requested_collection_date"           => collection_date,
-        "#{prefix}.number_of_transactions"              => number_of_transactions,
-        "#{prefix}.control_sum"                         => control_sum
+        "#{prefix}.payment_information_identification"             => id,
+        "#{prefix}.payment_type_information.service_level.code"    => "SEPA",
+        "#{prefix}.payment_type_information.local_instrument.code" => "CORE",
+        "#{prefix}.payment_method"                                 => "DD",
+        "#{prefix}.requested_collection_date"                      => collection_date,
+        "#{prefix}.number_of_transactions"                         => number_of_transactions,
+        "#{prefix}.control_sum"                                    => control_sum
       }
 
-      hsh = hsh.merge creditor.to_properties("#{prefix}.creditor")
-      hsh = hsh.merge creditor_account.to_properties("#{prefix}.creditor")
+      if opts[:pain_008_001_version] == "02"
+        hsh = hsh["#{prefix}.payment_type_information.sequence_type"]
+      end
+
+      hsh = hsh.merge creditor.to_properties("#{prefix}.creditor", opts)
+      hsh = hsh.merge creditor_account.to_properties("#{prefix}.creditor", opts)
 
       direct_debits.each_with_index { |dd, j|
-        hsh = hsh.merge(dd.to_properties("#{prefix}.direct_debit_transaction_information[#{j}]"))
+        hsh = hsh.merge(dd.to_properties("#{prefix}.direct_debit_transaction_information[#{j}]", opts))
       }
 
       hsh
@@ -104,7 +110,7 @@ class Sepa::DirectDebitOrder
       @iban, @swift = iban, swift
     end
 
-    def to_properties prefix
+    def to_properties prefix, opts
       { "#{prefix}_account.identification.iban"                       => iban,
         "#{prefix}_agent.financial_institution_identification.bic_fi" => swift }
     end
@@ -117,14 +123,14 @@ class Sepa::DirectDebitOrder
       @debtor, @debtor_account, @end_to_end_id, @amount, @currency, @sequence_type, @mandate_identification = debtor, debtor_account, end_to_end_id, amount, currency, sequence_type, mandate_identification
     end
 
-    def to_properties prefix
+    def to_properties prefix, opts
       hsh = {
         "#{prefix}.payment_identification.end_to_end_identification"         => end_to_end_id,
         "#{prefix}.instructed_amount"                                        => ("%.2f" % amount),
         "#{prefix}.instructed_amount_currency"                               => "EUR",
       }
-      hsh = hsh.merge debtor.to_properties("#{prefix}.debtor")
-      hsh = hsh.merge debtor_account.to_properties("#{prefix}.debtor")
+      hsh = hsh.merge debtor.to_properties("#{prefix}.debtor", opts)
+      hsh = hsh.merge debtor_account.to_properties("#{prefix}.debtor", opts)
       unless sequence_type == nil || sequence_type == ""
         hsh = hsh.merge({ "#{prefix}.payment_type_information.sequence_type" => sequence_type })
       end
