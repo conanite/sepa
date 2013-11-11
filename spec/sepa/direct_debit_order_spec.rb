@@ -5,7 +5,7 @@ require "time"
 
 describe Sepa::DirectDebitOrder do
 
-  let(:order) {
+  def order sepa_identifier_class
     bank_account0 = Sepa::DirectDebitOrder::BankAccount.new "FRZIZIPAPARAZZI345789", "FRZZPPKOOKOO"
     debtor0 = Sepa::DirectDebitOrder::Party.new "DALTON/CONANMR", "64, Livva de Getamire", nil, "30005", "RENNES", "FR", "Conan DALTON", "01234567890", "conan@dalton.sepa.i.hope.this.works"
     dd00 = Sepa::DirectDebitOrder::DirectDebit.new debtor0, bank_account0, "MONECOLE REG F13789 PVT 3", 1231.31, "EUR", "RCUR", "mandate-id-0"
@@ -26,23 +26,34 @@ describe Sepa::DirectDebitOrder do
 
     creditor = Sepa::DirectDebitOrder::Party.new "Mon École", "3, Livva de Getamire", nil, "75022", "Paris", "FR", "M. le Directeur", "+33 999 999 999", "directeur@monecole.softify.com"
     creditor_account = Sepa::DirectDebitOrder::BankAccount.new "FRGOOGOOYADDA9999999", "FRGGYELLOW99"
-    payment = Sepa::DirectDebitOrder::CreditorPayment.new creditor, creditor_account, "MONECOLE_PAYMENTS_20130703", Date.parse("2013-07-10"), [dd00, dd01, dd10, dd11, dd20, dd21]
+    sepa_identifier = sepa_identifier_class.new "FR123ZZZ010203"
+    payment = Sepa::DirectDebitOrder::CreditorPayment.new creditor, creditor_account, "MONECOLE_PAYMENTS_20130703", Date.parse("2013-07-10"), sepa_identifier, [dd00, dd01, dd10, dd11, dd20, dd21]
 
     initiator = Sepa::DirectDebitOrder::Party.new "SOFTIFY SARL", "289, Livva de Getamire", nil, "75021", "Paris", "FR", "M. Le Gérant", "+33 111 111 111", "gerant@softify.bigbang"
 
     Sepa::DirectDebitOrder::Order.new "MSG0001", initiator, [payment]
-  }
+  end
 
-   it "should produce v02 xml corresponding to the given inputs" do
-    xml = order.to_xml pain_008_001_version: "02"
+  it "should produce v02 xml corresponding to the given inputs" do
+    o = order Sepa::DirectDebitOrder::PrivateSepaIdentifier
+    xml = o.to_xml pain_008_001_version: "02"
     expected = File.read(File.expand_path("../expected_customer_direct_debit_initiation_v02.xml", __FILE__))
     expected.force_encoding(Encoding::UTF_8)
     xml.should == expected
   end
 
   it "should produce v04 xml corresponding to the given inputs" do
-    xml = order.to_xml pain_008_001_version: "04"
+    o = order Sepa::DirectDebitOrder::PrivateSepaIdentifier
+    xml = o.to_xml pain_008_001_version: "04"
     expected = File.read(File.expand_path("../expected_customer_direct_debit_initiation_v04.xml", __FILE__))
+    expected.force_encoding(Encoding::UTF_8)
+    xml.should == expected
+  end
+
+  it "should produce v04 xml corresponding to the given inputs with an organisation identifier for the creditor" do
+    o = order Sepa::DirectDebitOrder::OrganisationSepaIdentifier
+    xml = o.to_xml pain_008_001_version: "04"
+    expected = File.read(File.expand_path("../expected_customer_direct_debit_initiation_v04_with_org_id.xml", __FILE__))
     expected.force_encoding(Encoding::UTF_8)
     xml.should == expected
   end

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Document xmlns="urn:iso:std:iso:20022:tech:xsd:pain.008.001.02" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:iso:std:iso:20022:tech:xsd:pain.008.001.04 pain.008.001.04.xsd">
+<Document xmlns="urn:iso:std:iso:20022:tech:xsd:pain.008.001.04" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:iso:std:iso:20022:tech:xsd:pain.008.001.04 pain.008.001.04.xsd">
   <CstmrDrctDbtInitn>
     <GrpHdr>
       <MsgId>MSG0001</MsgId>
@@ -22,10 +22,10 @@
       <CtrlSum>8303.01</CtrlSum>
     </GrpHdr>
     <PmtInf>
-      <PmtInfId>MONECOLE_PAYMENTS_20130703_FRST</PmtInfId>
+      <PmtInfId>MONECOLE_PAYMENTS_20130703</PmtInfId>
       <PmtMtd>DD</PmtMtd>
-      <NbOfTxs>2</NbOfTxs>
-      <CtrlSum>2766.66</CtrlSum>
+      <NbOfTxs>6</NbOfTxs>
+      <CtrlSum>8303.01</CtrlSum>
       <PmtTpInf>
         <SvcLvl>
           <Cd>SEPA</Cd>
@@ -33,7 +33,6 @@
         <LclInstrm>
           <Cd>CORE</Cd>
         </LclInstrm>
-        <SeqTp>FRST</SeqTp>
       </PmtTpInf>
       <ReqdColltnDt>2013-07-10</ReqdColltnDt>
       <Cdtr>
@@ -63,143 +62,23 @@
       <ChrgBr>SLEV</ChrgBr>
       <CdtrSchmeId>
         <Id>
-          <PrvtId>
+          <OrgId>
             <Othr>
               <Id>FR123ZZZ010203</Id>
               <SchmeNm>
                 <Prtry>SEPA</Prtry>
               </SchmeNm>
             </Othr>
-          </PrvtId>
-        </Id>
-      </CdtrSchmeId>
-      <DrctDbtTxInf>
-        <PmtId>
-          <EndToEndId>MONECOLE REG F13790 PVT 3</EndToEndId>
-        </PmtId>
-        <InstdAmt Ccy="EUR">1732.32</InstdAmt>
-        <DrctDbtTx>
-          <MndtRltdInf>
-            <MndtId>mandate-id-1</MndtId>
-          </MndtRltdInf>
-        </DrctDbtTx>
-        <DbtrAgt>
-          <FinInstnId>
-            <BICFI>FRQQWIGGA</BICFI>
-          </FinInstnId>
-        </DbtrAgt>
-        <Dbtr>
-          <Nm>ADAMS/SAMUELMR</Nm>
-          <PstlAdr>
-            <PstCd>75048</PstCd>
-            <TwnNm>PARIS</TwnNm>
-            <Ctry>FR</Ctry>
-            <AdrLine>256, Livva de Getamire</AdrLine>
-          </PstlAdr>
-          <CtctDtls>
-            <Nm>Samuel ADAMS</Nm>
-            <PhneNb>09876543210</PhneNb>
-            <EmailAdr>samuel@adams.sepa.i.hope.this.works</EmailAdr>
-          </CtctDtls>
-        </Dbtr>
-        <DbtrAcct>
-          <Id>
-            <IBAN>FRQUIQUIWIGWAM947551</IBAN>
-          </Id>
-        </DbtrAcct>
-      </DrctDbtTxInf>
-      <DrctDbtTxInf>
-        <PmtId>
-          <EndToEndId>MONECOLE REG F13792 PVT 3</EndToEndId>
-        </PmtId>
-        <InstdAmt Ccy="EUR">1034.34</InstdAmt>
-        <DrctDbtTx>
-          <MndtRltdInf>
-            <MndtId>mandate-id-1</MndtId>
-          </MndtRltdInf>
-        </DrctDbtTx>
-        <DbtrAgt>
-          <FinInstnId>
-            <BICFI>FRQQWIGGA</BICFI>
-          </FinInstnId>
-        </DbtrAgt>
-        <Dbtr>
-          <Nm>ADAMS/SAMUELMR</Nm>
-          <PstlAdr>
-            <PstCd>75048</PstCd>
-            <TwnNm>PARIS</TwnNm>
-            <Ctry>FR</Ctry>
-            <AdrLine>256, Livva de Getamire</AdrLine>
-          </PstlAdr>
-          <CtctDtls>
-            <Nm>Samuel ADAMS</Nm>
-            <PhneNb>09876543210</PhneNb>
-            <EmailAdr>samuel@adams.sepa.i.hope.this.works</EmailAdr>
-          </CtctDtls>
-        </Dbtr>
-        <DbtrAcct>
-          <Id>
-            <IBAN>FRQUIQUIWIGWAM947551</IBAN>
-          </Id>
-        </DbtrAcct>
-      </DrctDbtTxInf>
-    </PmtInf>
-    <PmtInf>
-      <PmtInfId>MONECOLE_PAYMENTS_20130703_RCUR</PmtInfId>
-      <PmtMtd>DD</PmtMtd>
-      <NbOfTxs>4</NbOfTxs>
-      <CtrlSum>5536.349999999999</CtrlSum>
-      <PmtTpInf>
-        <SvcLvl>
-          <Cd>SEPA</Cd>
-        </SvcLvl>
-        <LclInstrm>
-          <Cd>CORE</Cd>
-        </LclInstrm>
-        <SeqTp>RCUR</SeqTp>
-      </PmtTpInf>
-      <ReqdColltnDt>2013-07-10</ReqdColltnDt>
-      <Cdtr>
-        <Nm>Mon École</Nm>
-        <PstlAdr>
-          <PstCd>75022</PstCd>
-          <TwnNm>Paris</TwnNm>
-          <Ctry>FR</Ctry>
-          <AdrLine>3, Livva de Getamire</AdrLine>
-        </PstlAdr>
-        <CtctDtls>
-          <Nm>M. le Directeur</Nm>
-          <PhneNb>+33 999 999 999</PhneNb>
-          <EmailAdr>directeur@monecole.softify.com</EmailAdr>
-        </CtctDtls>
-      </Cdtr>
-      <CdtrAcct>
-        <Id>
-          <IBAN>FRGOOGOOYADDA9999999</IBAN>
-        </Id>
-      </CdtrAcct>
-      <CdtrAgt>
-        <FinInstnId>
-          <BICFI>FRGGYELLOW99</BICFI>
-        </FinInstnId>
-      </CdtrAgt>
-      <ChrgBr>SLEV</ChrgBr>
-      <CdtrSchmeId>
-        <Id>
-          <PrvtId>
-            <Othr>
-              <Id>FR123ZZZ010203</Id>
-              <SchmeNm>
-                <Prtry>SEPA</Prtry>
-              </SchmeNm>
-            </Othr>
-          </PrvtId>
+          </OrgId>
         </Id>
       </CdtrSchmeId>
       <DrctDbtTxInf>
         <PmtId>
           <EndToEndId>MONECOLE REG F13789 PVT 3</EndToEndId>
         </PmtId>
+        <PmtTpInf>
+          <SeqTp>RCUR</SeqTp>
+        </PmtTpInf>
         <InstdAmt Ccy="EUR">1231.31</InstdAmt>
         <DrctDbtTx>
           <MndtRltdInf>
@@ -235,6 +114,9 @@
         <PmtId>
           <EndToEndId>MONECOLE REG F13791 PVT 3</EndToEndId>
         </PmtId>
+        <PmtTpInf>
+          <SeqTp>RCUR</SeqTp>
+        </PmtTpInf>
         <InstdAmt Ccy="EUR">1133.33</InstdAmt>
         <DrctDbtTx>
           <MndtRltdInf>
@@ -268,8 +150,87 @@
       </DrctDbtTxInf>
       <DrctDbtTxInf>
         <PmtId>
+          <EndToEndId>MONECOLE REG F13790 PVT 3</EndToEndId>
+        </PmtId>
+        <PmtTpInf>
+          <SeqTp>FRST</SeqTp>
+        </PmtTpInf>
+        <InstdAmt Ccy="EUR">1732.32</InstdAmt>
+        <DrctDbtTx>
+          <MndtRltdInf>
+            <MndtId>mandate-id-1</MndtId>
+          </MndtRltdInf>
+        </DrctDbtTx>
+        <DbtrAgt>
+          <FinInstnId>
+            <BICFI>FRQQWIGGA</BICFI>
+          </FinInstnId>
+        </DbtrAgt>
+        <Dbtr>
+          <Nm>ADAMS/SAMUELMR</Nm>
+          <PstlAdr>
+            <PstCd>75048</PstCd>
+            <TwnNm>PARIS</TwnNm>
+            <Ctry>FR</Ctry>
+            <AdrLine>256, Livva de Getamire</AdrLine>
+          </PstlAdr>
+          <CtctDtls>
+            <Nm>Samuel ADAMS</Nm>
+            <PhneNb>09876543210</PhneNb>
+            <EmailAdr>samuel@adams.sepa.i.hope.this.works</EmailAdr>
+          </CtctDtls>
+        </Dbtr>
+        <DbtrAcct>
+          <Id>
+            <IBAN>FRQUIQUIWIGWAM947551</IBAN>
+          </Id>
+        </DbtrAcct>
+      </DrctDbtTxInf>
+      <DrctDbtTxInf>
+        <PmtId>
+          <EndToEndId>MONECOLE REG F13792 PVT 3</EndToEndId>
+        </PmtId>
+        <PmtTpInf>
+          <SeqTp>FRST</SeqTp>
+        </PmtTpInf>
+        <InstdAmt Ccy="EUR">1034.34</InstdAmt>
+        <DrctDbtTx>
+          <MndtRltdInf>
+            <MndtId>mandate-id-1</MndtId>
+          </MndtRltdInf>
+        </DrctDbtTx>
+        <DbtrAgt>
+          <FinInstnId>
+            <BICFI>FRQQWIGGA</BICFI>
+          </FinInstnId>
+        </DbtrAgt>
+        <Dbtr>
+          <Nm>ADAMS/SAMUELMR</Nm>
+          <PstlAdr>
+            <PstCd>75048</PstCd>
+            <TwnNm>PARIS</TwnNm>
+            <Ctry>FR</Ctry>
+            <AdrLine>256, Livva de Getamire</AdrLine>
+          </PstlAdr>
+          <CtctDtls>
+            <Nm>Samuel ADAMS</Nm>
+            <PhneNb>09876543210</PhneNb>
+            <EmailAdr>samuel@adams.sepa.i.hope.this.works</EmailAdr>
+          </CtctDtls>
+        </Dbtr>
+        <DbtrAcct>
+          <Id>
+            <IBAN>FRQUIQUIWIGWAM947551</IBAN>
+          </Id>
+        </DbtrAcct>
+      </DrctDbtTxInf>
+      <DrctDbtTxInf>
+        <PmtId>
           <EndToEndId>MONECOLE REG F13793 PVT 3</EndToEndId>
         </PmtId>
+        <PmtTpInf>
+          <SeqTp>RCUR</SeqTp>
+        </PmtTpInf>
         <InstdAmt Ccy="EUR">1935.35</InstdAmt>
         <DrctDbtTx>
           <MndtRltdInf>
@@ -305,6 +266,9 @@
         <PmtId>
           <EndToEndId>MONECOLE REG F13794 PVT 3</EndToEndId>
         </PmtId>
+        <PmtTpInf>
+          <SeqTp>RCUR</SeqTp>
+        </PmtTpInf>
         <InstdAmt Ccy="EUR">1236.36</InstdAmt>
         <DrctDbtTx>
           <MndtRltdInf>

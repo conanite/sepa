@@ -3,7 +3,6 @@
 require 'sepa/payments_initiation/pain00800104/customer_direct_debit_initiation'
 
 class Sepa::DirectDebitOrder
-
   module Helper
     def blank? item
       item == nil || blank_string?(item)
@@ -75,13 +74,27 @@ class Sepa::DirectDebitOrder
     end
   end
 
+  class PrivateSepaIdentifier < Struct.new(:sepa_identifier)
+    def to_properties prefix, opts
+      { "#{prefix}.identification.private_identification.other.identification" => sepa_identifier,
+        "#{prefix}.identification.private_identification.other.scheme_name.proprietary" => "SEPA"  }
+    end
+  end
+
+  class OrganisationSepaIdentifier < Struct.new(:sepa_identifier)
+    def to_properties prefix, opts
+      { "#{prefix}.identification.organisation_identification.other.identification" => sepa_identifier,
+        "#{prefix}.identification.organisation_identification.other.scheme_name.proprietary" => "SEPA"  }
+    end
+  end
+
   class CreditorPayment
-    attr_accessor :creditor, :creditor_account, :id, :collection_date
+    attr_accessor :creditor, :creditor_account, :id, :collection_date, :sepa_identification
     attr_accessor :direct_debits, :sequence_type
 
-    def initialize creditor, creditor_account, id, collection_date, direct_debits
+    def initialize creditor, creditor_account, id, collection_date, sepa_identification, direct_debits
       @creditor, @creditor_account = creditor, creditor_account
-      @id, @collection_date = id, collection_date
+      @id, @collection_date, @sepa_identification = id, collection_date, sepa_identification
       @direct_debits = direct_debits
     end
 
@@ -102,7 +115,7 @@ class Sepa::DirectDebitOrder
 
       seq_types.each do |seq_type, dds|
         next if dds.empty?
-        ncp = CreditorPayment.new(creditor, creditor_account, "#{id}_#{seq_type}", collection_date, dds)
+        ncp = CreditorPayment.new(creditor, creditor_account, "#{id}_#{seq_type}", collection_date, sepa_identification, dds)
         ncp.sequence_type = seq_type
         yield ncp
       end
@@ -134,6 +147,7 @@ class Sepa::DirectDebitOrder
 
       hsh = hsh.merge creditor.to_properties("#{prefix}.creditor", opts)
       hsh = hsh.merge creditor_account.to_properties("#{prefix}.creditor", opts)
+      hsh = hsh.merge sepa_identification.to_properties("#{prefix}.creditor_scheme_identification", opts)
 
       direct_debits.each_with_index { |dd, j|
         hsh = hsh.merge(dd.to_properties("#{prefix}.direct_debit_transaction_information[#{j}]", opts))

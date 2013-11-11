@@ -10,4 +10,3 @@ class Sepa::PaymentsInitiation::PartyIdentification < Sepa::Base
   attribute :country_of_residence, "CtryOfRes"
   attribute :contact_details     , "CtctDtls" , Sepa::PaymentsInitiation::ContactDetails
 end
-

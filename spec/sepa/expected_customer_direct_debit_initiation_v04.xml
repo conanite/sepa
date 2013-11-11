@@ -60,6 +60,18 @@
         </FinInstnId>
       </CdtrAgt>
       <ChrgBr>SLEV</ChrgBr>
+      <CdtrSchmeId>
+        <Id>
+          <PrvtId>
+            <Othr>
+              <Id>FR123ZZZ010203</Id>
+              <SchmeNm>
+                <Prtry>SEPA</Prtry>
+              </SchmeNm>
+            </Othr>
+          </PrvtId>
+        </Id>
+      </CdtrSchmeId>
       <DrctDbtTxInf>
         <PmtId>
           <EndToEndId>MONECOLE REG F13789 PVT 3</EndToEndId>
