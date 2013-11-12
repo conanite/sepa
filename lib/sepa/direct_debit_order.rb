@@ -170,13 +170,17 @@ class Sepa::DirectDebitOrder
     end
   end
 
-  class MandateInformation < Struct.new(:identification, :signature_date); end
+  class MandateInformation < Struct.new(:identification, :signature_date, :sequence_type); end
 
   class DirectDebit
-    attr_accessor :debtor, :debtor_account, :end_to_end_id, :amount, :currency, :sequence_type, :mandate_info
+    attr_accessor :debtor, :debtor_account, :end_to_end_id, :amount, :currency, :mandate_info
 
-    def initialize debtor, debtor_account, end_to_end_id, amount, currency, sequence_type, mandate_info
-      @debtor, @debtor_account, @end_to_end_id, @amount, @currency, @sequence_type, @mandate_info = debtor, debtor_account, end_to_end_id, amount, currency, sequence_type, mandate_info
+    def initialize debtor, debtor_account, end_to_end_id, amount, currency, mandate_info
+      @debtor, @debtor_account, @end_to_end_id, @amount, @currency, @mandate_info = debtor, debtor_account, end_to_end_id, amount, currency, mandate_info
+    end
+
+    def sequence_type
+      mandate_info.sequence_type
     end
 
     def to_properties prefix, opts
@@ -191,7 +195,7 @@ class Sepa::DirectDebitOrder
       hsh = hsh.merge debtor_account.to_properties("#{prefix}.debtor", opts)
 
       if opts[:pain_008_001_version] == "04"
-        hsh["#{prefix}.payment_type_information.sequence_type"] = sequence_type
+        hsh["#{prefix}.payment_type_information.sequence_type"] = mandate_info.sequence_type
       end
 
       hsh
