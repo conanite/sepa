@@ -1,7 +1,18 @@
 # Sepa
 
 An implementation of pain.008.001 CustomerDirectDebitInitiation - versions 02 and 04. WARNING:
-NO WARRANTY, USE AT YOUR OWN RISK AND PERIL.
+NO WARRANTY, USE AT YOUR OWN RISK AND PERIL. By using this software, you warrant and represent
+and declare that having studied and examined and tested the source, you are satisfied, sure, and
+certain that the version you use does exactly what you want it to do. This 
+
+MORE WARNING: This is alpha-quality software. The API is not yet stable. New versions will break
+compatibility in unpredictable ways. Use at your own risk and peril.
+
+ANOTHER WARNING: While I aim for ISO-20022 compatibility in all its glorious detail, this gem
+implements only a subset of ISO-20022, and possibly does so incorrectly. On top of that, your
+bank's interpretation of ISO-20022 may differ from mine, may require some fields that are 
+optional in the ISO specification, and may ignore some other fields that are mandatory in the
+specification. 
 
 I wanted to make it as easy as possible to define message types and components so this library
 will be easy to grow to implement the entire standard.
