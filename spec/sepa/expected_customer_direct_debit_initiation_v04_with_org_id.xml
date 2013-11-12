@@ -83,6 +83,7 @@
         <DrctDbtTx>
           <MndtRltdInf>
             <MndtId>mandate-id-0</MndtId>
+            <DtOfSgntr>2010-11-18</DtOfSgntr>
           </MndtRltdInf>
         </DrctDbtTx>
         <DbtrAgt>
@@ -121,6 +122,7 @@
         <DrctDbtTx>
           <MndtRltdInf>
             <MndtId>mandate-id-0</MndtId>
+            <DtOfSgntr>2010-11-18</DtOfSgntr>
           </MndtRltdInf>
         </DrctDbtTx>
         <DbtrAgt>
@@ -159,6 +161,7 @@
         <DrctDbtTx>
           <MndtRltdInf>
             <MndtId>mandate-id-1</MndtId>
+            <DtOfSgntr>2012-01-19</DtOfSgntr>
           </MndtRltdInf>
         </DrctDbtTx>
         <DbtrAgt>
@@ -197,6 +200,7 @@
         <DrctDbtTx>
           <MndtRltdInf>
             <MndtId>mandate-id-1</MndtId>
+            <DtOfSgntr>2012-01-19</DtOfSgntr>
           </MndtRltdInf>
         </DrctDbtTx>
         <DbtrAgt>
@@ -234,7 +238,8 @@
         <InstdAmt Ccy="EUR">1935.35</InstdAmt>
         <DrctDbtTx>
           <MndtRltdInf>
-            <MndtId>mandate-id-1</MndtId>
+            <MndtId>mandate-id-2</MndtId>
+            <DtOfSgntr>2013-06-08</DtOfSgntr>
           </MndtRltdInf>
         </DrctDbtTx>
         <DbtrAgt>
@@ -272,7 +277,8 @@
         <InstdAmt Ccy="EUR">1236.36</InstdAmt>
         <DrctDbtTx>
           <MndtRltdInf>
-            <MndtId>mandate-id-1</MndtId>
+            <MndtId>mandate-id-2</MndtId>
+            <DtOfSgntr>2013-06-08</DtOfSgntr>
           </MndtRltdInf>
         </DrctDbtTx>
         <DbtrAgt>

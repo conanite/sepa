@@ -170,11 +170,13 @@ class Sepa::DirectDebitOrder
     end
   end
 
-  class DirectDebit
-    attr_accessor :debtor, :debtor_account, :end_to_end_id, :amount, :currency, :sequence_type, :mandate_identification
+  class MandateInformation < Struct.new(:identification, :signature_date); end
 
-    def initialize debtor, debtor_account, end_to_end_id, amount, currency, sequence_type, mandate_identification
-      @debtor, @debtor_account, @end_to_end_id, @amount, @currency, @sequence_type, @mandate_identification = debtor, debtor_account, end_to_end_id, amount, currency, sequence_type, mandate_identification
+  class DirectDebit
+    attr_accessor :debtor, :debtor_account, :end_to_end_id, :amount, :currency, :sequence_type, :mandate_info
+
+    def initialize debtor, debtor_account, end_to_end_id, amount, currency, sequence_type, mandate_info
+      @debtor, @debtor_account, @end_to_end_id, @amount, @currency, @sequence_type, @mandate_info = debtor, debtor_account, end_to_end_id, amount, currency, sequence_type, mandate_info
     end
 
     def to_properties prefix, opts
@@ -182,7 +184,8 @@ class Sepa::DirectDebitOrder
         "#{prefix}.payment_identification.end_to_end_identification"         => end_to_end_id,
         "#{prefix}.instructed_amount"                                        => ("%.2f" % amount),
         "#{prefix}.instructed_amount_currency"                               => "EUR",
-        "#{prefix}.direct_debit_transaction.mandate_related_information.mandate_identification" => mandate_identification
+        "#{prefix}.direct_debit_transaction.mandate_related_information.mandate_identification" => mandate_info.identification,
+        "#{prefix}.direct_debit_transaction.mandate_related_information.date_of_signature"      => mandate_info.signature_date
       }
       hsh = hsh.merge debtor.to_properties("#{prefix}.debtor", opts)
       hsh = hsh.merge debtor_account.to_properties("#{prefix}.debtor", opts)
