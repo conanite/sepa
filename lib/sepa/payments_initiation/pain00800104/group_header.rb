@@ -7,8 +7,8 @@ class Sepa::PaymentsInitiation::Pain00800104::GroupHeader < Sepa::Base
   attribute :message_identification, "MsgId"
   attribute :creation_date_time    , "CreDtTm", Time
   attribute :number_of_transactions, "NbOfTxs"
-  attribute :initiating_party      , "InitgPty", Sepa::PaymentsInitiation::PartyIdentification
   attribute :control_sum           , "CtrlSum"
+  attribute :initiating_party      , "InitgPty", Sepa::PaymentsInitiation::PartyIdentification
   attribute :authorisation         , "Authstn", Sepa::PaymentsInitiation::Authorisation
   attribute :forwarding_agent      , "FwdgAgt", Sepa::PaymentsInitiation::BranchAndFinancialInstitutionIdentification
 end

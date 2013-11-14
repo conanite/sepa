@@ -5,6 +5,7 @@
       <MsgId>MSG0001</MsgId>
       <CreDtTm>1992-02-28T18:30:00</CreDtTm>
       <NbOfTxs>2</NbOfTxs>
+      <CtrlSum>2963.63</CtrlSum>
       <InitgPty>
         <Nm>SOFTIFY SARL</Nm>
         <PstlAdr>
@@ -19,7 +20,6 @@
           <EmailAdr>gerant@softify.bigbang</EmailAdr>
         </CtctDtls>
       </InitgPty>
-      <CtrlSum>2963.63</CtrlSum>
     </GrpHdr>
     <PmtInf>
       <PmtInfId>MONECOLE_PAYMENTS_20130703</PmtInfId>

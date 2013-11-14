@@ -165,8 +165,10 @@ class Sepa::DirectDebitOrder
     end
 
     def to_properties prefix, opts
-      { "#{prefix}_account.identification.iban"                       => iban,
-        "#{prefix}_agent.financial_institution_identification.bic_fi" => swift }
+      bic_tag = ( opts[:pain_008_001_version] == "04" ? "bic_fi" : "bic" )
+
+      { "#{prefix}_account.identification.iban"                           => iban,
+        "#{prefix}_agent.financial_institution_identification.#{bic_tag}" => swift }
     end
   end
 

@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Document xmlns="urn:iso:std:iso:20022:tech:xsd:pain.008.001.02" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:iso:std:iso:20022:tech:xsd:pain.008.001.04 pain.008.001.04.xsd">
+<Document xmlns="urn:iso:std:iso:20022:tech:xsd:pain.008.001.02" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:iso:std:iso:20022:tech:xsd:pain.008.001.02 pain.008.001.02.xsd">
   <CstmrDrctDbtInitn>
     <GrpHdr>
       <MsgId>MSG0001</MsgId>
       <CreDtTm>1992-02-28T18:30:00</CreDtTm>
       <NbOfTxs>6</NbOfTxs>
+      <CtrlSum>8303.01</CtrlSum>
       <InitgPty>
         <Nm>SOFTIFY SARL</Nm>
         <PstlAdr>
@@ -19,7 +20,6 @@
           <EmailAdr>gerant@softify.bigbang</EmailAdr>
         </CtctDtls>
       </InitgPty>
-      <CtrlSum>8303.01</CtrlSum>
     </GrpHdr>
     <PmtInf>
       <PmtInfId>MONECOLE_PAYMENTS_20130703_FRST</PmtInfId>
@@ -57,7 +57,7 @@
       </CdtrAcct>
       <CdtrAgt>
         <FinInstnId>
-          <BICFI>FRGGYELLOW99</BICFI>
+          <BIC>FRGGYELLOW99</BIC>
         </FinInstnId>
       </CdtrAgt>
       <ChrgBr>SLEV</ChrgBr>
@@ -86,7 +86,7 @@
         </DrctDbtTx>
         <DbtrAgt>
           <FinInstnId>
-            <BICFI>FRQQWIGGA</BICFI>
+            <BIC>FRQQWIGGA</BIC>
           </FinInstnId>
         </DbtrAgt>
         <Dbtr>
@@ -122,7 +122,7 @@
         </DrctDbtTx>
         <DbtrAgt>
           <FinInstnId>
-            <BICFI>FRQQWIGGA</BICFI>
+            <BIC>FRQQWIGGA</BIC>
           </FinInstnId>
         </DbtrAgt>
         <Dbtr>
@@ -182,7 +182,7 @@
       </CdtrAcct>
       <CdtrAgt>
         <FinInstnId>
-          <BICFI>FRGGYELLOW99</BICFI>
+          <BIC>FRGGYELLOW99</BIC>
         </FinInstnId>
       </CdtrAgt>
       <ChrgBr>SLEV</ChrgBr>
@@ -211,7 +211,7 @@
         </DrctDbtTx>
         <DbtrAgt>
           <FinInstnId>
-            <BICFI>FRZZPPKOOKOO</BICFI>
+            <BIC>FRZZPPKOOKOO</BIC>
           </FinInstnId>
         </DbtrAgt>
         <Dbtr>
@@ -247,7 +247,7 @@
         </DrctDbtTx>
         <DbtrAgt>
           <FinInstnId>
-            <BICFI>FRZZPPKOOKOO</BICFI>
+            <BIC>FRZZPPKOOKOO</BIC>
           </FinInstnId>
         </DbtrAgt>
         <Dbtr>
@@ -283,7 +283,7 @@
         </DrctDbtTx>
         <DbtrAgt>
           <FinInstnId>
-            <BICFI>FRQQWIGGA</BICFI>
+            <BIC>FRQQWIGGA</BIC>
           </FinInstnId>
         </DbtrAgt>
         <Dbtr>
@@ -319,7 +319,7 @@
         </DrctDbtTx>
         <DbtrAgt>
           <FinInstnId>
-            <BICFI>FRQQWIGGA</BICFI>
+            <BIC>FRQQWIGGA</BIC>
           </FinInstnId>
         </DbtrAgt>
         <Dbtr>
