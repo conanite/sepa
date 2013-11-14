@@ -17,6 +17,7 @@ Gem::Specification.new do |gem|
 
   gem.add_dependency             'builder'
   gem.add_dependency             'aduki'
+  gem.add_dependency             'countries', "~> 0.9.3"
   gem.add_development_dependency 'rspec', '~> 2.9'
   gem.add_development_dependency 'rspec_numbering_formatter'
 
