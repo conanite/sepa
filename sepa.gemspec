@@ -11,8 +11,8 @@ Gem::Specification.new do |gem|
   gem.authors       = ["Conan Dalton"]
   gem.license       = 'MIT'
   gem.email         = ["conan@conandalton.net"]
-  gem.description   = %q{ Generate ISO20022 XML messages. Implements pain.008.001.04 CustomerDirectDebitInitiation for now. WARNING: NO WARRANTY, USE AT YOUR OWN RISK AND PERIL. }
-  gem.summary       = %q{ pain.008.001.04 CustomerDirectDebitInitiation ISO20022 XML. WARNING: NO WARRANTY, USE AT YOUR OWN RISK AND PERIL.  }
+  gem.description   = %q{ Generate ISO20022 XML messages. Implements a subset of pain.008.001.02 and pain.008.001.04 CustomerDirectDebitInitiation for now. WARNING: NO WARRANTY, USE AT YOUR OWN RISK AND PERIL. }
+  gem.summary       = %q{ pain.008.001.04 and pain.008.001.02 CustomerDirectDebitInitiation ISO20022 XML. WARNING: NO WARRANTY, USE AT YOUR OWN RISK AND PERIL.  }
   gem.homepage      = "https://github.com/conanite/sepa"
 
   gem.add_dependency             'builder'
