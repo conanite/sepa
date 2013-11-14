@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+require 'countries'
 require 'sepa/payments_initiation/pain00800104/customer_direct_debit_initiation'
 
 class Sepa::DirectDebitOrder
@@ -10,6 +11,14 @@ class Sepa::DirectDebitOrder
 
     def blank_string? item
       item.is_a?(String) && item.strip.length == 0
+    end
+
+    def county_code name
+      return "" if blank?(name)
+      name = name.upcase
+      return name if name.match(/^[A-Z]{2}$/)
+      country = ::Country.find_country_by_name(name)
+      country ? country.alpha2 : ""
     end
   end
 
@@ -61,12 +70,13 @@ class Sepa::DirectDebitOrder
     end
 
     def to_properties prefix, opts
+      cc = county_code country
       hsh = { "#{prefix}.name" => name }
       hsh["#{prefix}.postal_address.address_line[0]"] = address_line_1 unless blank? address_line_1
       hsh["#{prefix}.postal_address.address_line[1]"] = address_line_2 unless blank? address_line_2
       hsh["#{prefix}.postal_address.post_code"]       = postcode       unless blank? postcode
       hsh["#{prefix}.postal_address.town_name"]       = town           unless blank? town
-      hsh["#{prefix}.postal_address.country"]         = country        unless blank? country
+      hsh["#{prefix}.postal_address.country"]         = cc             unless blank? cc
       hsh["#{prefix}.contact_details.name"]           = contact_name   unless blank? contact_name
       hsh["#{prefix}.contact_details.phone_number"]   = contact_phone  unless blank? contact_phone
       hsh["#{prefix}.contact_details.email_address"]  = contact_email  unless blank? contact_email

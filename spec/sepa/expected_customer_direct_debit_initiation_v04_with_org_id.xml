@@ -173,8 +173,8 @@
           <Nm>ADAMS/SAMUELMR</Nm>
           <PstlAdr>
             <PstCd>75048</PstCd>
-            <TwnNm>PARIS</TwnNm>
-            <Ctry>FR</Ctry>
+            <TwnNm>BERLIN</TwnNm>
+            <Ctry>DE</Ctry>
             <AdrLine>256, Livva de Getamire</AdrLine>
           </PstlAdr>
           <CtctDtls>
@@ -212,8 +212,8 @@
           <Nm>ADAMS/SAMUELMR</Nm>
           <PstlAdr>
             <PstCd>75048</PstCd>
-            <TwnNm>PARIS</TwnNm>
-            <Ctry>FR</Ctry>
+            <TwnNm>BERLIN</TwnNm>
+            <Ctry>DE</Ctry>
             <AdrLine>256, Livva de Getamire</AdrLine>
           </PstlAdr>
           <CtctDtls>
@@ -248,11 +248,10 @@
           </FinInstnId>
         </DbtrAgt>
         <Dbtr>
-          <Nm>ADAMS/SAMUELMR</Nm>
+          <Nm>Mr. James Joyce</Nm>
           <PstlAdr>
             <PstCd>75099</PstCd>
-            <TwnNm>PARIS</TwnNm>
-            <Ctry>FR</Ctry>
+            <TwnNm>LONDON</TwnNm>
             <AdrLine>512, Livva de Meet Agir</AdrLine>
           </PstlAdr>
           <CtctDtls>
@@ -287,11 +286,10 @@
           </FinInstnId>
         </DbtrAgt>
         <Dbtr>
-          <Nm>ADAMS/SAMUELMR</Nm>
+          <Nm>Mr. James Joyce</Nm>
           <PstlAdr>
             <PstCd>75099</PstCd>
-            <TwnNm>PARIS</TwnNm>
-            <Ctry>FR</Ctry>
+            <TwnNm>LONDON</TwnNm>
             <AdrLine>512, Livva de Meet Agir</AdrLine>
           </PstlAdr>
           <CtctDtls>
