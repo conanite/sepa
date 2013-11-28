@@ -125,7 +125,7 @@ class Sepa::DirectDebitOrder
 
       seq_types.each do |seq_type, dds|
         next if dds.empty?
-        ncp = CreditorPayment.new(creditor, creditor_account, "#{id}_#{seq_type}", collection_date, sepa_identification, dds)
+        ncp = CreditorPayment.new(creditor, creditor_account, "#{id}-#{seq_type}", collection_date, sepa_identification, dds)
         ncp.sequence_type = seq_type
         yield ncp
       end
