@@ -6,7 +6,7 @@ describe Sepa::PaymentsInitiation::Pain00800104::CustomerDirectDebitInitiation d
 
   let(:props) {
     { "group_header.message_identification"                                    => "MSG0001",
-      "group_header.creation_date_time"                                        => "1992-02-28T18:30:00",
+      "group_header.creation_date_time"                                        => "1992-02-28T18:30:00Z",
       "group_header.number_of_transactions"                                    => "2",
       "group_header.control_sum"                                               => "2963.63",
       "group_header.initiating_party.name"                                     => "SOFTIFY SARL",

@@ -3,7 +3,7 @@
   <CstmrDrctDbtInitn>
     <GrpHdr>
       <MsgId>MSG0001</MsgId>
-      <CreDtTm>1992-02-28T18:30:00</CreDtTm>
+      <CreDtTm>1992-02-28T18:30:00Z</CreDtTm>
       <NbOfTxs>6</NbOfTxs>
       <CtrlSum>8303.01</CtrlSum>
       <InitgPty>
