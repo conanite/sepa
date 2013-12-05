@@ -84,9 +84,12 @@ class Sepa::DirectDebitOrder
           hsh["#{prefix}.postal_address.town_name"]       = town           unless blank? town
         end
         hsh["#{prefix}.postal_address.country"]         = cc             unless blank? cc
-        hsh["#{prefix}.contact_details.name"]           = contact_name   unless blank? contact_name
-        hsh["#{prefix}.contact_details.phone_number"]   = contact_phone  unless blank? contact_phone
-        hsh["#{prefix}.contact_details.email_address"]  = contact_email  unless blank? contact_email
+
+        if (opts[:context] != :creditor) || (opts[:pain_008_001_version] != "02")
+          hsh["#{prefix}.contact_details.name"]           = contact_name   unless blank? contact_name
+          hsh["#{prefix}.contact_details.phone_number"]   = contact_phone  unless blank? contact_phone
+          hsh["#{prefix}.contact_details.email_address"]  = contact_email  unless blank? contact_email
+        end
       end
       hsh
     end
@@ -163,7 +166,7 @@ class Sepa::DirectDebitOrder
         hsh["#{prefix}.payment_type_information.sequence_type"] = sequence_type
       end
 
-      hsh = hsh.merge creditor.to_properties("#{prefix}.creditor", opts)
+      hsh = hsh.merge creditor.to_properties("#{prefix}.creditor", opts.merge({ context: :creditor }))
       hsh = hsh.merge creditor_account.to_properties("#{prefix}.creditor", opts)
       hsh = hsh.merge sepa_identification.to_properties("#{prefix}.creditor_scheme_identification", opts)
 

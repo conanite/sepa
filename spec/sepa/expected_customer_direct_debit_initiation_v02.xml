@@ -32,11 +32,6 @@
           <AdrLine>3, Livva de Getamire</AdrLine>
           <AdrLine>75022 Paris</AdrLine>
         </PstlAdr>
-        <CtctDtls>
-          <Nm>M. le Directeur</Nm>
-          <PhneNb>+33 999 999 999</PhneNb>
-          <EmailAdr>directeur@monecole.softify.com</EmailAdr>
-        </CtctDtls>
       </Cdtr>
       <CdtrAcct>
         <Id>
@@ -154,11 +149,6 @@
           <AdrLine>3, Livva de Getamire</AdrLine>
           <AdrLine>75022 Paris</AdrLine>
         </PstlAdr>
-        <CtctDtls>
-          <Nm>M. le Directeur</Nm>
-          <PhneNb>+33 999 999 999</PhneNb>
-          <EmailAdr>directeur@monecole.softify.com</EmailAdr>
-        </CtctDtls>
       </Cdtr>
       <CdtrAcct>
         <Id>
