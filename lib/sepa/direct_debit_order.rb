@@ -74,9 +74,15 @@ class Sepa::DirectDebitOrder
       hsh = { "#{prefix}.name" => name }
       if (opts[:context] != :initiating_party) || (opts[:pain_008_001_version] != "02")
         hsh["#{prefix}.postal_address.address_line[0]"] = address_line_1 unless blank? address_line_1
-        hsh["#{prefix}.postal_address.address_line[1]"] = address_line_2 unless blank? address_line_2
-        hsh["#{prefix}.postal_address.post_code"]       = postcode       unless blank? postcode
-        hsh["#{prefix}.postal_address.town_name"]       = town           unless blank? town
+
+        if opts[:pain_008_001_version] == "02"
+          candidate_adr_line_2 = "#{postcode} #{town}".strip
+          address_line_2 = candidate_adr_line_2 unless blank? candidate_adr_line_2
+          hsh["#{prefix}.postal_address.address_line[1]"] = address_line_2 unless blank? address_line_2
+        else
+          hsh["#{prefix}.postal_address.post_code"]       = postcode       unless blank? postcode
+          hsh["#{prefix}.postal_address.town_name"]       = town           unless blank? town
+        end
         hsh["#{prefix}.postal_address.country"]         = cc             unless blank? cc
         hsh["#{prefix}.contact_details.name"]           = contact_name   unless blank? contact_name
         hsh["#{prefix}.contact_details.phone_number"]   = contact_phone  unless blank? contact_phone

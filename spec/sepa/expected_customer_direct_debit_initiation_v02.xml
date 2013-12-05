@@ -28,10 +28,9 @@
       <Cdtr>
         <Nm>Mon École</Nm>
         <PstlAdr>
-          <PstCd>75022</PstCd>
-          <TwnNm>Paris</TwnNm>
           <Ctry>FR</Ctry>
           <AdrLine>3, Livva de Getamire</AdrLine>
+          <AdrLine>75022 Paris</AdrLine>
         </PstlAdr>
         <CtctDtls>
           <Nm>M. le Directeur</Nm>
@@ -81,10 +80,9 @@
         <Dbtr>
           <Nm>ADAMS/SAMUELMR</Nm>
           <PstlAdr>
-            <PstCd>75048</PstCd>
-            <TwnNm>BERLIN</TwnNm>
             <Ctry>DE</Ctry>
             <AdrLine>256, Livva de Getamire</AdrLine>
+            <AdrLine>75048 BERLIN</AdrLine>
           </PstlAdr>
           <CtctDtls>
             <Nm>Samuel ADAMS</Nm>
@@ -117,10 +115,9 @@
         <Dbtr>
           <Nm>ADAMS/SAMUELMR</Nm>
           <PstlAdr>
-            <PstCd>75048</PstCd>
-            <TwnNm>BERLIN</TwnNm>
             <Ctry>DE</Ctry>
             <AdrLine>256, Livva de Getamire</AdrLine>
+            <AdrLine>75048 BERLIN</AdrLine>
           </PstlAdr>
           <CtctDtls>
             <Nm>Samuel ADAMS</Nm>
@@ -153,10 +150,9 @@
       <Cdtr>
         <Nm>Mon École</Nm>
         <PstlAdr>
-          <PstCd>75022</PstCd>
-          <TwnNm>Paris</TwnNm>
           <Ctry>FR</Ctry>
           <AdrLine>3, Livva de Getamire</AdrLine>
+          <AdrLine>75022 Paris</AdrLine>
         </PstlAdr>
         <CtctDtls>
           <Nm>M. le Directeur</Nm>
@@ -206,10 +202,9 @@
         <Dbtr>
           <Nm>DALTON/CONANMR</Nm>
           <PstlAdr>
-            <PstCd>30005</PstCd>
-            <TwnNm>RENNES</TwnNm>
             <Ctry>FR</Ctry>
             <AdrLine>64, Livva de Getamire</AdrLine>
+            <AdrLine>30005 RENNES</AdrLine>
           </PstlAdr>
           <CtctDtls>
             <Nm>Conan DALTON</Nm>
@@ -242,10 +237,9 @@
         <Dbtr>
           <Nm>DALTON/CONANMR</Nm>
           <PstlAdr>
-            <PstCd>30005</PstCd>
-            <TwnNm>RENNES</TwnNm>
             <Ctry>FR</Ctry>
             <AdrLine>64, Livva de Getamire</AdrLine>
+            <AdrLine>30005 RENNES</AdrLine>
           </PstlAdr>
           <CtctDtls>
             <Nm>Conan DALTON</Nm>
@@ -278,9 +272,8 @@
         <Dbtr>
           <Nm>Mr. James Joyce</Nm>
           <PstlAdr>
-            <PstCd>75099</PstCd>
-            <TwnNm>LONDON</TwnNm>
             <AdrLine>512, Livva de Meet Agir</AdrLine>
+            <AdrLine>75099 LONDON</AdrLine>
           </PstlAdr>
           <CtctDtls>
             <Nm>Johann S. BACH</Nm>
@@ -313,9 +306,8 @@
         <Dbtr>
           <Nm>Mr. James Joyce</Nm>
           <PstlAdr>
-            <PstCd>75099</PstCd>
-            <TwnNm>LONDON</TwnNm>
             <AdrLine>512, Livva de Meet Agir</AdrLine>
+            <AdrLine>75099 LONDON</AdrLine>
           </PstlAdr>
           <CtctDtls>
             <Nm>Johann S. BACH</Nm>
