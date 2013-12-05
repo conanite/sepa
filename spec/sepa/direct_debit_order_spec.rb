@@ -18,7 +18,7 @@ describe Sepa::DirectDebitOrder do
     dd10 = Sepa::DirectDebitOrder::DirectDebit.new debtor1, bank_account1, "MONECOLE REG F13790 PVT 3", 1732.32, "EUR", mandate1
     dd11 = Sepa::DirectDebitOrder::DirectDebit.new debtor1, bank_account1, "MONECOLE REG F13792 PVT 3", 1034.34, "EUR", mandate1
 
-    bank_account2 = Sepa::DirectDebitOrder::BankAccount.new "FRQUIQUIWIGWAM947551", "FRQQWIGGA"
+    bank_account2 = Sepa::DirectDebitOrder::BankAccount.new "  FR QU IQ UI WI GW\tAM   947 551  ", "FRQQWIGGA"
     debtor2 = Sepa::DirectDebitOrder::Party.new "Mr. James Joyce", "512, Livva de Meet Agir", nil, "75099", "LONDON", "Angleterre", "Johann S. BACH", "09876543210", "js@bach.sepa.i.hope.this.works"
     mandate2 = Sepa::DirectDebitOrder::MandateInformation.new("mandate-id-2", Date.parse("2013-06-08"), "RCUR")
     dd20 = Sepa::DirectDebitOrder::DirectDebit.new debtor2, bank_account2, "MONECOLE REG F13793 PVT 3", 1935.35, "EUR", mandate2
@@ -28,7 +28,7 @@ describe Sepa::DirectDebitOrder do
     Time.stub(:now).and_return sepa_now
 
     creditor = Sepa::DirectDebitOrder::Party.new "Mon École", "3, Livva de Getamire", nil, "75022", "Paris", "Frankreich", "M. le Directeur", "+33 999 999 999", "directeur@monecole.softify.com"
-    creditor_account = Sepa::DirectDebitOrder::BankAccount.new "FRGOOGOOYADDA9999999", "FRGGYELLOW99"
+    creditor_account = Sepa::DirectDebitOrder::BankAccount.new "FRGOO GOOY ADDA 9999 999", "FRGGYELLOW99"
     sepa_identifier = sepa_identifier_class.new "FR123ZZZ010203"
     payment = Sepa::DirectDebitOrder::CreditorPayment.new creditor, creditor_account, "MONECOLE_PAYMENTS_20130703", Date.parse("2013-07-10"), sepa_identifier, [dd00, dd01, dd10, dd11, dd20, dd21]
 
