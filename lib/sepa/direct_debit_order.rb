@@ -4,6 +4,21 @@ require 'countries'
 require 'sepa/payments_initiation/pain00800104/customer_direct_debit_initiation'
 
 class Sepa::DirectDebitOrder
+  def self.new_order props
+    o = Order.new
+    o.message_id = props[:message_identification]
+    p = o.initiating_party = Party.new
+    p.name           = props[:name]
+    p.address_line_1 = props[:address_1]
+    p.address_line_2 = props[:address_2]
+    p.postcode       = props[:postcode]
+    p.town           = props[:town]
+    p.country        = props[:country]
+    p.contact_name   = props[:contact]
+    p.contact_phone  = props[:phone]
+    p.contact_email  = props[:email]
+  end
+
   module Helper
     def blank? item
       item == nil || blank_string?(item)
@@ -27,6 +42,38 @@ class Sepa::DirectDebitOrder
 
     def initialize message_id, initiating_party, creditor_payments
       @message_id, @initiating_party, @creditor_payments = message_id, initiating_party, creditor_payments
+    end
+
+    def new_payment
+      self.creditor_payments ||= []
+      cp = CreditorPayment.new
+      cp.id              = props[:payment_identification]
+      cp.collection_date = props[:collection_date]
+      p   =  cp.creditor = Party.new
+      p.name             = props[:name]
+      p.address_line_1   = props[:address_1]
+      p.address_line_2   = props[:address_2]
+      p.postcode         = props[:postcode]
+      p.town             = props[:town]
+      p.country          = props[:country]
+      p.contact_name     = props[:contact]
+      p.contact_phone    = props[:phone]
+      p.contact_email    = props[:email]
+
+      a       = cp.creditor_account = BankAccount.new
+      a.iban  = props[:iban]
+      a.swift = props[:bic]
+
+      sepa_id = if props[:sepa_identifier][:private]
+                  PrivateSepaIdentifier.new(props[:sepa_identifier][:private])
+                else
+                  OrganisationSepaIdentifier.new(props[:sepa_identifier][:organisation])
+                end
+
+      cp.sepa_identification = sepa_id
+
+      self.creditor_payments << cp
+      cp
     end
 
     def to_properties opts
