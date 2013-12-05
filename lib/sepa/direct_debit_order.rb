@@ -37,7 +37,7 @@ class Sepa::DirectDebitOrder
         "group_header.control_sum"             => creditor_payments.inject(0) { |sum, cp| sum + cp.control_sum            },
       }
 
-      hsh = hsh.merge initiating_party.to_properties("group_header.initiating_party", opts)
+      hsh = hsh.merge initiating_party.to_properties("group_header.initiating_party", opts.merge({context: :initiating_party}))
 
       cps = []
       if opts[:pain_008_001_version] == "02"
@@ -72,14 +72,16 @@ class Sepa::DirectDebitOrder
     def to_properties prefix, opts
       cc = county_code country
       hsh = { "#{prefix}.name" => name }
-      hsh["#{prefix}.postal_address.address_line[0]"] = address_line_1 unless blank? address_line_1
-      hsh["#{prefix}.postal_address.address_line[1]"] = address_line_2 unless blank? address_line_2
-      hsh["#{prefix}.postal_address.post_code"]       = postcode       unless blank? postcode
-      hsh["#{prefix}.postal_address.town_name"]       = town           unless blank? town
-      hsh["#{prefix}.postal_address.country"]         = cc             unless blank? cc
-      hsh["#{prefix}.contact_details.name"]           = contact_name   unless blank? contact_name
-      hsh["#{prefix}.contact_details.phone_number"]   = contact_phone  unless blank? contact_phone
-      hsh["#{prefix}.contact_details.email_address"]  = contact_email  unless blank? contact_email
+      if (opts[:context] != :initiating_party) || (opts[:pain_008_001_version] != "02")
+        hsh["#{prefix}.postal_address.address_line[0]"] = address_line_1 unless blank? address_line_1
+        hsh["#{prefix}.postal_address.address_line[1]"] = address_line_2 unless blank? address_line_2
+        hsh["#{prefix}.postal_address.post_code"]       = postcode       unless blank? postcode
+        hsh["#{prefix}.postal_address.town_name"]       = town           unless blank? town
+        hsh["#{prefix}.postal_address.country"]         = cc             unless blank? cc
+        hsh["#{prefix}.contact_details.name"]           = contact_name   unless blank? contact_name
+        hsh["#{prefix}.contact_details.phone_number"]   = contact_phone  unless blank? contact_phone
+        hsh["#{prefix}.contact_details.email_address"]  = contact_email  unless blank? contact_email
+      end
       hsh
     end
   end
@@ -108,8 +110,8 @@ class Sepa::DirectDebitOrder
       @direct_debits = direct_debits
     end
 
-    # this is only called for V02, in which case SequenceType is mandatory
-    # necessary because each PaymentInformation container contains a single SequenceType element (inside PaymentTypeInformation)
+    # This is only called for V02, in which case SequenceType is mandatory.
+    # Necessary because each PaymentInformation container contains a single SequenceType element (inside PaymentTypeInformation)
     # whereas in V04, there is one SequenceType element per DirectDebitTransactionInformation
     def collect_by_sequence_type
       seq_types = {

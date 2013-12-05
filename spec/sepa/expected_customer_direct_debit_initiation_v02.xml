@@ -8,17 +8,6 @@
       <CtrlSum>8303.01</CtrlSum>
       <InitgPty>
         <Nm>SOFTIFY SARL</Nm>
-        <PstlAdr>
-          <PstCd>75021</PstCd>
-          <TwnNm>Paris</TwnNm>
-          <Ctry>FR</Ctry>
-          <AdrLine>289, Livva de Getamire</AdrLine>
-        </PstlAdr>
-        <CtctDtls>
-          <Nm>M. Le Gérant</Nm>
-          <PhneNb>+33 111 111 111</PhneNb>
-          <EmailAdr>gerant@softify.bigbang</EmailAdr>
-        </CtctDtls>
       </InitgPty>
     </GrpHdr>
     <PmtInf>
