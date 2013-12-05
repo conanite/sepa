@@ -26,7 +26,7 @@
       </PmtTpInf>
       <ReqdColltnDt>2013-07-10</ReqdColltnDt>
       <Cdtr>
-        <Nm>Mon École</Nm>
+        <Nm>Mon Ecole</Nm>
         <PstlAdr>
           <Ctry>FR</Ctry>
           <AdrLine>3, Livva de Getamire</AdrLine>
@@ -79,11 +79,6 @@
             <AdrLine>256, Livva de Getamire</AdrLine>
             <AdrLine>75048 BERLIN</AdrLine>
           </PstlAdr>
-          <CtctDtls>
-            <Nm>Samuel ADAMS</Nm>
-            <PhneNb>09876543210</PhneNb>
-            <EmailAdr>samuel@adams.sepa.i.hope.this.works</EmailAdr>
-          </CtctDtls>
         </Dbtr>
         <DbtrAcct>
           <Id>
@@ -114,11 +109,6 @@
             <AdrLine>256, Livva de Getamire</AdrLine>
             <AdrLine>75048 BERLIN</AdrLine>
           </PstlAdr>
-          <CtctDtls>
-            <Nm>Samuel ADAMS</Nm>
-            <PhneNb>09876543210</PhneNb>
-            <EmailAdr>samuel@adams.sepa.i.hope.this.works</EmailAdr>
-          </CtctDtls>
         </Dbtr>
         <DbtrAcct>
           <Id>
@@ -143,7 +133,7 @@
       </PmtTpInf>
       <ReqdColltnDt>2013-07-10</ReqdColltnDt>
       <Cdtr>
-        <Nm>Mon École</Nm>
+        <Nm>Mon Ecole</Nm>
         <PstlAdr>
           <Ctry>FR</Ctry>
           <AdrLine>3, Livva de Getamire</AdrLine>
@@ -196,11 +186,6 @@
             <AdrLine>64, Livva de Getamire</AdrLine>
             <AdrLine>30005 RENNES</AdrLine>
           </PstlAdr>
-          <CtctDtls>
-            <Nm>Conan DALTON</Nm>
-            <PhneNb>01234567890</PhneNb>
-            <EmailAdr>conan@dalton.sepa.i.hope.this.works</EmailAdr>
-          </CtctDtls>
         </Dbtr>
         <DbtrAcct>
           <Id>
@@ -231,11 +216,6 @@
             <AdrLine>64, Livva de Getamire</AdrLine>
             <AdrLine>30005 RENNES</AdrLine>
           </PstlAdr>
-          <CtctDtls>
-            <Nm>Conan DALTON</Nm>
-            <PhneNb>01234567890</PhneNb>
-            <EmailAdr>conan@dalton.sepa.i.hope.this.works</EmailAdr>
-          </CtctDtls>
         </Dbtr>
         <DbtrAcct>
           <Id>
@@ -265,11 +245,6 @@
             <AdrLine>512, Livva de Meet Agir</AdrLine>
             <AdrLine>75099 LONDON</AdrLine>
           </PstlAdr>
-          <CtctDtls>
-            <Nm>Johann S. BACH</Nm>
-            <PhneNb>09876543210</PhneNb>
-            <EmailAdr>js@bach.sepa.i.hope.this.works</EmailAdr>
-          </CtctDtls>
         </Dbtr>
         <DbtrAcct>
           <Id>
@@ -299,11 +274,6 @@
             <AdrLine>512, Livva de Meet Agir</AdrLine>
             <AdrLine>75099 LONDON</AdrLine>
           </PstlAdr>
-          <CtctDtls>
-            <Nm>Johann S. BACH</Nm>
-            <PhneNb>09876543210</PhneNb>
-            <EmailAdr>js@bach.sepa.i.hope.this.works</EmailAdr>
-          </CtctDtls>
         </Dbtr>
         <DbtrAcct>
           <Id>

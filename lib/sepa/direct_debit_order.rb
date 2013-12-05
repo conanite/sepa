@@ -85,7 +85,7 @@ class Sepa::DirectDebitOrder
         end
         hsh["#{prefix}.postal_address.country"]         = cc             unless blank? cc
 
-        if (opts[:context] != :creditor) || (opts[:pain_008_001_version] != "02")
+        unless opts[:pain_008_001_version] == "02"
           hsh["#{prefix}.contact_details.name"]           = contact_name   unless blank? contact_name
           hsh["#{prefix}.contact_details.phone_number"]   = contact_phone  unless blank? contact_phone
           hsh["#{prefix}.contact_details.email_address"]  = contact_email  unless blank? contact_email

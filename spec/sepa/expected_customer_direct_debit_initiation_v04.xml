@@ -15,7 +15,7 @@
           <AdrLine>289, Livva de Getamire</AdrLine>
         </PstlAdr>
         <CtctDtls>
-          <Nm>M. Le Gérant</Nm>
+          <Nm>M. Le Gerant</Nm>
           <PhneNb>+33 111 111 111</PhneNb>
           <EmailAdr>gerant@softify.bigbang</EmailAdr>
         </CtctDtls>
@@ -36,7 +36,7 @@
       </PmtTpInf>
       <ReqdColltnDt>2013-07-10</ReqdColltnDt>
       <Cdtr>
-        <Nm>Mon École</Nm>
+        <Nm>Mon Ecole</Nm>
         <PstlAdr>
           <PstCd>75022</PstCd>
           <TwnNm>Paris</TwnNm>

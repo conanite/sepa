@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 module Sepa
   class Base
     include Aduki::Initializer
@@ -16,6 +17,17 @@ module Sepa
       false
     end
 
+    def normalize str
+      return str if str.is_a? Fixnum
+      return str if str.is_a? Float
+      str.gsub(/[àéèûîôüïöÿçÇÉÈáÀÁÜÏÖß]/, {
+        'à' => 'a', 'é' => 'e', 'è' => 'e',
+        'û' => 'u', 'î' => 'i', 'ô' => 'o', 'ü' => 'u', 'ï' => 'i', 'ö' => 'o',
+        'ÿ' => 'y', 'ç' => 'c', 'Ç' => 'C', 'É' => 'E', 'È' => 'E', 'á' => 'a',
+        'À' => 'A', 'Á' => 'A', 'Ü' => 'U', 'Ï' => 'I', 'Ö' => 'O', 'ß' => 'ss'
+      }).gsub(/[^a-zA-Z0-9_@ \.,()'+\/\?-]/, '')
+    end
+
     def to_xml builder
       self.class.attribute_defs.each do |name, meta|
         item = self.send(name)
@@ -23,10 +35,10 @@ module Sepa
         attributes = build_xml_attributes options[:attributes]
         next if item == nil || (item.is_a?(Sepa::Base) && item.empty?)
         if meta[:type] == :string
-          builder.__send__(meta[:tag], item, attributes)
+          builder.__send__(meta[:tag], normalize(item), attributes)
         elsif meta[:type] == :[]
           if meta[:member_type] == nil
-            item.each { |obj| builder.__send__(meta[:tag], obj, attributes) }
+            item.each { |obj| builder.__send__(meta[:tag], normalize(obj), attributes) }
           else
             item.each do |obj|
               builder.__send__(meta[:tag], attributes) { obj.to_xml builder }
