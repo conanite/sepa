@@ -45,7 +45,7 @@ module Sepa
             end
           end
         elsif meta[:type] == Time
-          v = item.is_a?(String) ? item : item.strftime("%Y-%m-%dT%H:%M:%S")
+          v = item.is_a?(String) ? item : item.strftime("%Y-%m-%dT%H:%M:%SZ")
           builder.__send__(meta[:tag], v, attributes)
         elsif meta[:type] == Date
           v = item.is_a?(String) ? item : item.strftime("%Y-%m-%d")
