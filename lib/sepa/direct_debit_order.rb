@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-require 'countries'
+require 'iso3166'
 require 'sepa/payments_initiation/pain00800104/customer_direct_debit_initiation'
 
 class Sepa::DirectDebitOrder
@@ -32,7 +32,7 @@ class Sepa::DirectDebitOrder
       return "" if blank?(name)
       name = name.upcase
       return name if name.match(/^[A-Z]{2}$/)
-      country = ::Country.find_country_by_name(name)
+      country = ISO3166::Country.find_country_by_name(name)
       country ? country.alpha2 : ""
     end
   end
