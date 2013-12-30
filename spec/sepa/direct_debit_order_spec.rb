@@ -24,7 +24,7 @@ describe Sepa::DirectDebitOrder do
     dd20 = Sepa::DirectDebitOrder::DirectDebit.new debtor2, bank_account2, "MONECOLE REG F13793 PVT 3", 1935.35, "EUR", mandate2
     dd21 = Sepa::DirectDebitOrder::DirectDebit.new debtor2, bank_account2, "MONECOLE REG F13794 PVT 3", 1236.36, "EUR", mandate2
 
-    sepa_now = Time.strptime "1992-02-28T18:30:00", "%Y-%m-%dT%H:%M:%S"
+    sepa_now = Time.local(1992, 2, 28, 18, 30, 0, 0, 0)
     Time.stub(:now).and_return sepa_now
 
     creditor = Sepa::DirectDebitOrder::Party.new "Mon École", "3, Livva de Getamire", nil, "75022", "Paris", "Frankreich", "M. le Directeur", "+33 999 999 999", "directeur@monecole.softify.com"
@@ -39,25 +39,25 @@ describe Sepa::DirectDebitOrder do
 
   it "should produce v02 xml corresponding to the given inputs" do
     o = order Sepa::DirectDebitOrder::PrivateSepaIdentifier
-    xml = o.to_xml pain_008_001_version: "02"
+    xml = o.to_xml :pain_008_001_version => "02"
     expected = File.read(File.expand_path("../expected_customer_direct_debit_initiation_v02.xml", __FILE__))
-    expected.force_encoding(Encoding::UTF_8)
+    expected.force_encoding(Encoding::UTF_8) if expected.respond_to? :force_encoding
     xml.should == expected
   end
 
   it "should produce v04 xml corresponding to the given inputs" do
     o = order Sepa::DirectDebitOrder::PrivateSepaIdentifier
-    xml = o.to_xml pain_008_001_version: "04"
+    xml = o.to_xml :pain_008_001_version => "04"
     expected = File.read(File.expand_path("../expected_customer_direct_debit_initiation_v04.xml", __FILE__))
-    expected.force_encoding(Encoding::UTF_8)
+    expected.force_encoding(Encoding::UTF_8) if expected.respond_to? :force_encoding
     xml.should == expected
   end
 
   it "should produce v04 xml corresponding to the given inputs with an organisation identifier for the creditor" do
     o = order Sepa::DirectDebitOrder::OrganisationSepaIdentifier
-    xml = o.to_xml pain_008_001_version: "04"
+    xml = o.to_xml :pain_008_001_version => "04"
     expected = File.read(File.expand_path("../expected_customer_direct_debit_initiation_v04_with_org_id.xml", __FILE__))
-    expected.force_encoding(Encoding::UTF_8)
+    expected.force_encoding(Encoding::UTF_8) if expected.respond_to? :force_encoding
     xml.should == expected
   end
 
