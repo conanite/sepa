@@ -84,7 +84,7 @@ class Sepa::DirectDebitOrder
         "group_header.control_sum"             => creditor_payments.inject(0) { |sum, cp| sum + cp.control_sum            },
       }
 
-      hsh = hsh.merge initiating_party.to_properties("group_header.initiating_party", opts.merge({context: :initiating_party}))
+      hsh = hsh.merge initiating_party.to_properties("group_header.initiating_party", opts.merge({:context => :initiating_party}))
 
       cps = []
       if opts[:pain_008_001_version] == "02"
@@ -213,7 +213,7 @@ class Sepa::DirectDebitOrder
         hsh["#{prefix}.payment_type_information.sequence_type"] = sequence_type
       end
 
-      hsh = hsh.merge creditor.to_properties("#{prefix}.creditor", opts.merge({ context: :creditor }))
+      hsh = hsh.merge creditor.to_properties("#{prefix}.creditor", opts.merge({ :context => :creditor }))
       hsh = hsh.merge creditor_account.to_properties("#{prefix}.creditor", opts)
       hsh = hsh.merge sepa_identification.to_properties("#{prefix}.creditor_scheme_identification", opts)
 
