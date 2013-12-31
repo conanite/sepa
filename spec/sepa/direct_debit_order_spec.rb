@@ -40,6 +40,7 @@ describe Sepa::DirectDebitOrder do
   it "should produce v02 xml corresponding to the given inputs" do
     o = order Sepa::DirectDebitOrder::PrivateSepaIdentifier
     xml = o.to_xml pain_008_001_version: "02"
+    xml = check_doc_header_02 xml
     expected = File.read(File.expand_path("../expected_customer_direct_debit_initiation_v02.xml", __FILE__))
     expected.force_encoding(Encoding::UTF_8)
     xml.should == expected
@@ -48,6 +49,7 @@ describe Sepa::DirectDebitOrder do
   it "should produce v04 xml corresponding to the given inputs" do
     o = order Sepa::DirectDebitOrder::PrivateSepaIdentifier
     xml = o.to_xml pain_008_001_version: "04"
+    xml = check_doc_header_04 xml
     expected = File.read(File.expand_path("../expected_customer_direct_debit_initiation_v04.xml", __FILE__))
     expected.force_encoding(Encoding::UTF_8)
     xml.should == expected
@@ -56,6 +58,7 @@ describe Sepa::DirectDebitOrder do
   it "should produce v04 xml corresponding to the given inputs with an organisation identifier for the creditor" do
     o = order Sepa::DirectDebitOrder::OrganisationSepaIdentifier
     xml = o.to_xml pain_008_001_version: "04"
+    xml = check_doc_header_04 xml
     expected = File.read(File.expand_path("../expected_customer_direct_debit_initiation_v04_with_org_id.xml", __FILE__))
     expected.force_encoding(Encoding::UTF_8)
     xml.should == expected
