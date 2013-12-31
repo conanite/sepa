@@ -181,7 +181,8 @@ class Sepa::DirectDebitOrder
         seq_types[dd.sequence_type] << dd
       end
 
-      seq_types.each do |seq_type, dds|
+      %w{FRST RCUR FNAL OOFF}.each do |seq_type|
+        dds = seq_types[seq_type]
         next if dds.empty?
         ncp = CreditorPayment.new(creditor, creditor_account, "#{id}-#{seq_type}", collection_date, sepa_identification, dds)
         ncp.sequence_type = seq_type
