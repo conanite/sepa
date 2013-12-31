@@ -42,7 +42,7 @@ describe Sepa::DirectDebitOrder do
     xml = o.to_xml pain_008_001_version: "02"
     xml = check_doc_header_02 xml
     expected = File.read(File.expand_path("../expected_customer_direct_debit_initiation_v02.xml", __FILE__))
-    expected.force_encoding(Encoding::UTF_8)
+    expected.force_encoding(Encoding::UTF_8) if expected.respond_to? :force_encoding
     xml.should == expected
   end
 
@@ -51,7 +51,7 @@ describe Sepa::DirectDebitOrder do
     xml = o.to_xml pain_008_001_version: "04"
     xml = check_doc_header_04 xml
     expected = File.read(File.expand_path("../expected_customer_direct_debit_initiation_v04.xml", __FILE__))
-    expected.force_encoding(Encoding::UTF_8)
+    expected.force_encoding(Encoding::UTF_8) if expected.respond_to? :force_encoding
     xml.should == expected
   end
 
@@ -60,7 +60,7 @@ describe Sepa::DirectDebitOrder do
     xml = o.to_xml pain_008_001_version: "04"
     xml = check_doc_header_04 xml
     expected = File.read(File.expand_path("../expected_customer_direct_debit_initiation_v04_with_org_id.xml", __FILE__))
-    expected.force_encoding(Encoding::UTF_8)
+    expected.force_encoding(Encoding::UTF_8) if expected.respond_to? :force_encoding
     xml.should == expected
   end
 

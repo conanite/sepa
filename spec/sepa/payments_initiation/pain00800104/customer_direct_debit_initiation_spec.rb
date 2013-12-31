@@ -78,7 +78,7 @@ describe Sepa::PaymentsInitiation::Pain00800104::CustomerDirectDebitInitiation d
     xml = Sepa::PaymentsInitiation::Pain00800104::CustomerDirectDebitInitiation.new(props).generate_xml(pain_008_001_version: '04')
     xml = check_doc_header_04 xml
     expected = File.read(File.expand_path("../../../expected-simple.xml", __FILE__))
-    expected.force_encoding(Encoding::UTF_8)
+    expected.force_encoding(Encoding::UTF_8) if expected.respond_to? :force_encoding
     xml.should == expected
   end
 end
