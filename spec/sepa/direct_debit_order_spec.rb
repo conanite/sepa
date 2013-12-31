@@ -24,7 +24,7 @@ describe Sepa::DirectDebitOrder do
     dd20 = Sepa::DirectDebitOrder::DirectDebit.new debtor2, bank_account2, "MONECOLE REG F13793 PVT 3", 1935.35, "EUR", mandate2
     dd21 = Sepa::DirectDebitOrder::DirectDebit.new debtor2, bank_account2, "MONECOLE REG F13794 PVT 3", 1236.36, "EUR", mandate2
 
-    sepa_now = Time.strptime "1992-02-28T18:30:00", "%Y-%m-%dT%H:%M:%S"
+    sepa_now = Time.local(1992, 2, 28, 18, 30, 0, 0, 0)
     Time.stub(:now).and_return sepa_now
 
     creditor = Sepa::DirectDebitOrder::Party.new "Mon École", "3, Livva de Getamire", nil, "75022", "Paris", "Frankreich", "M. le Directeur", "+33 999 999 999", "directeur@monecole.softify.com"
