@@ -3,16 +3,16 @@
 An implementation of pain.008.001 CustomerDirectDebitInitiation - versions 02 and 04. WARNING:
 NO WARRANTY, USE AT YOUR OWN RISK AND PERIL. By using this software, you warrant and represent
 and declare that having studied and examined and tested the source, you are satisfied, sure, and
-certain that the version you use does exactly what you want it to do. This 
+certain that the version you use does exactly what you want it to do. This
 
 MORE WARNING: This is alpha-quality software. The API is not yet stable. New versions will break
 compatibility in unpredictable ways. Use at your own risk and peril.
 
 ANOTHER WARNING: While I aim for ISO-20022 compatibility in all its glorious detail, this gem
 implements only a subset of ISO-20022, and possibly does so incorrectly. On top of that, your
-bank's interpretation of ISO-20022 may differ from mine, may require some fields that are 
+bank's interpretation of ISO-20022 may differ from mine, may require some fields that are
 optional in the ISO specification, and may ignore some other fields that are mandatory in the
-specification. 
+specification.
 
 I wanted to make it as easy as possible to define message types and components so this library
 will be easy to grow to implement the entire standard.
@@ -73,6 +73,9 @@ a message-id.
 The last line returns a string that you will then need to send to your bank one way or another. For example, you might use an EBICS client. Or your bank might provide
 software to send the file. Or perhaps you can upload it via their website.
 
+## History
+
+0.0.15 Ruby 1.8.7 compatibility
 
 ## Contributing
 
@@ -83,3 +86,8 @@ Other message types are totally welcome.
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
+
+## Contributors
+
+Author: [Conan Dalton](http://www.conandalton.net), aka [conanite](https://github.com/conanite)
+With thanks to [corny](https://github.com/corny), [TheConstructor](https://github.com/TheConstructor)
