@@ -121,7 +121,7 @@
       <PmtInfId>MONECOLE_PAYMENTS_20130703-RCUR</PmtInfId>
       <PmtMtd>DD</PmtMtd>
       <NbOfTxs>4</NbOfTxs>
-      <CtrlSum>5536.349999999999</CtrlSum>
+      <CtrlSum>5536.35</CtrlSum>
       <PmtTpInf>
         <SvcLvl>
           <Cd>SEPA</Cd>

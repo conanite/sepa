@@ -19,7 +19,7 @@ module Sepa
 
     def normalize str
       return str if str.is_a? Fixnum
-      return str if str.is_a? Float
+      return ("%.2f" % str) if str.is_a? Float
       str.gsub(/[àéèûîôüïöÿçÇÉÈáÀÁÜÏÖß]/, {
         'à' => 'a', 'é' => 'e', 'è' => 'e',
         'û' => 'u', 'î' => 'i', 'ô' => 'o', 'ü' => 'u', 'ï' => 'i', 'ö' => 'o',
