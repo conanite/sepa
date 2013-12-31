@@ -68,14 +68,14 @@ describe Sepa::PaymentsInitiation::Pain00800104::CustomerDirectDebitInitiation d
 
   it "should raise an error unless the version is '02' or '04'" do
     pain = Sepa::PaymentsInitiation::Pain00800104::CustomerDirectDebitInitiation.new(props)
-    expect { pain.generate_xml(pain_008_001_version: '2') }.to raise_error
-    expect { pain.generate_xml(pain_008_001_version: 2) }.to raise_error
-    expect { pain.generate_xml(pain_008_001_version: "") }.to raise_error
+    expect { pain.generate_xml(:pain_008_001_version => '2') }.to raise_error
+    expect { pain.generate_xml(:pain_008_001_version => 2) }.to raise_error
+    expect { pain.generate_xml(:pain_008_001_version => "") }.to raise_error
     expect { pain.generate_xml({ }) }.to raise_error
   end
 
   it "should produce xml corresponding to the given inputs" do
-    xml = Sepa::PaymentsInitiation::Pain00800104::CustomerDirectDebitInitiation.new(props).generate_xml(pain_008_001_version: '04')
+    xml = Sepa::PaymentsInitiation::Pain00800104::CustomerDirectDebitInitiation.new(props).generate_xml(:pain_008_001_version => '04')
     xml = check_doc_header_04 xml
     expected = File.read(File.expand_path("../../../expected-simple.xml", __FILE__))
     expected.force_encoding(Encoding::UTF_8) if expected.respond_to? :force_encoding
