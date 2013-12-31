@@ -3,7 +3,7 @@ module Sepa
   class Base
     include Aduki::Initializer
 
-    @@attribute_defs = Hash.new { |h,k| h[k] = { } }
+    @@attribute_defs = Hash.new { |h,k| h[k] = [] }
 
     def build_xml_attributes names
       result = { }
@@ -79,18 +79,18 @@ module Sepa
         typed_attribute name, tag, type, options
       else
         attr_accessor name
-        attribute_defs[name] = { :tag => tag, :type => type, :options => options }
+        attribute_defs << [name, { :tag => tag, :type => type, :options => options }]
       end
     end
 
     def self.typed_attribute name, tag, type, options
-      attribute_defs[name] = { :tag => tag, :type => type, :options => options }
+      attribute_defs << [name, { :tag => tag, :type => type, :options => options }]
       attr_accessor name
       aduki name => type
     end
 
     def self.array_attribute name, tag, member_type=nil, options={ }
-      attribute_defs[name] = { :tag => tag, :type => :[], :member_type => member_type, :options => options }
+      attribute_defs << [name, { :tag => tag, :type => :[], :member_type => member_type, :options => options }]
       attr_accessor name
       aduki(name => member_type) if member_type
     end
