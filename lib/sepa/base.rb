@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+require 'bigdecimal'
 module Sepa
   class Base
     include Aduki::Initializer
