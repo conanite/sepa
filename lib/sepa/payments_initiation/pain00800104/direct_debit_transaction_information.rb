@@ -5,6 +5,7 @@ require "sepa/payments_initiation/pain00800104/payment_type_information"
 require "sepa/payments_initiation/pain00800104/direct_debit_transaction"
 require "sepa/payments_initiation/pain00800104/purpose_choice"
 require "sepa/payments_initiation/pain00800104/regulatory_reporting"
+require "sepa/payments_initiation/pain00800104/remittance_information_choice"
 
 class Sepa::PaymentsInitiation::Pain00800104::DirectDebitTransactionInformation < Sepa::Base
   definition "Provides information on the individual transaction(s) included in the message."
@@ -22,6 +23,7 @@ class Sepa::PaymentsInitiation::Pain00800104::DirectDebitTransactionInformation 
   attribute :instruction_for_creditor_agent, "InstrForCdtrAgt"
   attribute :purpose                       , "Purp"           , Sepa::PaymentsInitiation::Pain00800104::PurposeChoice
   attribute :regulatory_reporting          , "RgltryRptg"     , :[], Sepa::PaymentsInitiation::Pain00800104::RegulatoryReporting
+  attribute :remittance_information        , "RmtInf"         , Sepa::PaymentsInitiation::Pain00800104::RemittanceInformationChoice
 
   attr_accessor :instructed_amount_currency
 end
