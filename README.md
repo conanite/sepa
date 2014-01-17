@@ -75,6 +75,7 @@ software to send the file. Or perhaps you can upload it via their website.
 
 ## History
 
+0.0.16 BigDecimal to avoid floating-point rounding errors (w/thanks to @joostkuif), support RemittanceInformation (w/thanks to @TheConstructor)
 0.0.15 Ruby 1.8.7 compatibility
 
 ## Contributing
@@ -90,4 +91,4 @@ Other message types are totally welcome.
 ## Contributors
 
 Author: [Conan Dalton](http://www.conandalton.net), aka [conanite](https://github.com/conanite)
-With thanks to [corny](https://github.com/corny), [TheConstructor](https://github.com/TheConstructor)
+With thanks to [corny](https://github.com/corny), [TheConstructor](https://github.com/TheConstructor), [joostkuif](https://github.com/joostkuif)
