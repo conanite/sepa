@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+require 'bigdecimal'
 module Sepa
   class Base
     include Aduki::Initializer
@@ -20,6 +21,7 @@ module Sepa
     def normalize str
       return str if str.is_a? Fixnum
       return ("%.2f" % str) if str.is_a? Float
+      return ("%.2f" % str) if str.is_a? BigDecimal
       replacements = {
           'à' => 'a', 'é' => 'e', 'è' => 'e',
           'û' => 'u', 'î' => 'i', 'ô' => 'o', 'ü' => 'u', 'ï' => 'i', 'ö' => 'o',
