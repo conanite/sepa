@@ -236,7 +236,7 @@ class Sepa::DirectDebitOrder
     def to_properties prefix, opts
       bic_tag = ( opts[:pain_008_001_version] == "04" ? "bic_fi" : "bic" )
 
-      if @swift.empty?
+      if swift.nil?
         val = { "#{prefix}_account.identification.iban"                           => iban.gsub(/\s/, ''),
                 "#{prefix}_agent.financial_institution_identification.other.id"   => "NOTPROVIDED" }
       else
