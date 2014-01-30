@@ -24,13 +24,19 @@ describe Sepa::DirectDebitOrder do
     dd20 = Sepa::DirectDebitOrder::DirectDebit.new debtor2, bank_account2, "MONECOLE REG F13793 PVT 3", 1935.35, "EUR", mandate2, remittance_information ? "Another one" : nil
     dd21 = Sepa::DirectDebitOrder::DirectDebit.new debtor2, bank_account2, "MONECOLE REG F13794 PVT 3", 1236.36, "EUR", mandate2, remittance_information ? "Final transaction" : nil
 
+    bank_account3 = Sepa::DirectDebitOrder::BankAccount.new "NLQUIQUIWIGWAM947551", nil
+    debtor3 = Sepa::DirectDebitOrder::Party.new "R Epelsteeltje", "Spuistraat 42", nil, "75099", "Amsterdam", "Netherlands", "Ron Epelsteeltje", "01234567890", "ron@epelsteeltje.sepa.i.hope.this.works"
+    mandate3 = Sepa::DirectDebitOrder::MandateInformation.new("mandate-id-3", Date.parse("2014-01-23"), "RCUR")
+    dd30 = Sepa::DirectDebitOrder::DirectDebit.new debtor3, bank_account3, "MONECOLE REG F13793 PVT 3", 1235.42, "EUR", mandate3
+    dd31 = Sepa::DirectDebitOrder::DirectDebit.new debtor3, bank_account3, "MONECOLE REG F13794 PVT 3", 1236.78, "EUR", mandate3
+
     sepa_now = Time.local(1992, 2, 28, 18, 30, 0, 0, 0)
     Time.stub(:now).and_return sepa_now
 
     creditor = Sepa::DirectDebitOrder::Party.new "Mon École", "3, Livva de Getamire", nil, "75022", "Paris", "Frankreich", "M. le Directeur", "+33 999 999 999", "directeur@monecole.softify.com"
     creditor_account = Sepa::DirectDebitOrder::BankAccount.new "FRGOO GOOY ADDA 9999 999", "FRGGYELLOW99"
     sepa_identifier = sepa_identifier_class.new "FR123ZZZ010203"
-    payment = Sepa::DirectDebitOrder::CreditorPayment.new creditor, creditor_account, "MONECOLE_PAYMENTS_20130703", Date.parse("2013-07-10"), sepa_identifier, [dd00, dd01, dd10, dd11, dd20, dd21]
+    payment = Sepa::DirectDebitOrder::CreditorPayment.new creditor, creditor_account, "MONECOLE_PAYMENTS_20130703", Date.parse("2013-07-10"), sepa_identifier, [dd00, dd01, dd10, dd11, dd20, dd21, dd30, dd31]
 
     initiator = Sepa::DirectDebitOrder::Party.new "SOFTIFY SARL", "289, Livva de Getamire", nil, "75021", "Paris", "FR", "M. Le Gérant", "+33 111 111 111", "gerant@softify.bigbang"
 

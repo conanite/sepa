@@ -4,8 +4,8 @@
     <GrpHdr>
       <MsgId>MSG0001</MsgId>
       <CreDtTm>1992-02-28T18:30:00Z</CreDtTm>
-      <NbOfTxs>6</NbOfTxs>
-      <CtrlSum>8303.01</CtrlSum>
+      <NbOfTxs>8</NbOfTxs>
+      <CtrlSum>10775.21</CtrlSum>
       <InitgPty>
         <Nm>SOFTIFY SARL</Nm>
       </InitgPty>
@@ -120,8 +120,8 @@
     <PmtInf>
       <PmtInfId>MONECOLE_PAYMENTS_20130703-RCUR</PmtInfId>
       <PmtMtd>DD</PmtMtd>
-      <NbOfTxs>4</NbOfTxs>
-      <CtrlSum>5536.35</CtrlSum>
+      <NbOfTxs>6</NbOfTxs>
+      <CtrlSum>8008.55</CtrlSum>
       <PmtTpInf>
         <SvcLvl>
           <Cd>SEPA</Cd>
@@ -278,6 +278,70 @@
         <DbtrAcct>
           <Id>
             <IBAN>FRQUIQUIWIGWAM947551</IBAN>
+          </Id>
+        </DbtrAcct>
+      </DrctDbtTxInf>
+      <DrctDbtTxInf>
+        <PmtId>
+          <EndToEndId>MONECOLE REG F13793 PVT 3</EndToEndId>
+        </PmtId>
+        <InstdAmt Ccy="EUR">1235.42</InstdAmt>
+        <DrctDbtTx>
+          <MndtRltdInf>
+            <MndtId>mandate-id-3</MndtId>
+            <DtOfSgntr>2014-01-23</DtOfSgntr>
+          </MndtRltdInf>
+        </DrctDbtTx>
+        <DbtrAgt>
+          <FinInstnId>
+            <Othr>
+              <Id>NOTPROVIDED</Id>
+            </Othr>
+          </FinInstnId>
+        </DbtrAgt>
+        <Dbtr>
+          <Nm>R Epelsteeltje</Nm>
+          <PstlAdr>
+            <Ctry>NL</Ctry>
+            <AdrLine>Spuistraat 42</AdrLine>
+            <AdrLine>75099 Amsterdam</AdrLine>
+          </PstlAdr>
+        </Dbtr>
+        <DbtrAcct>
+          <Id>
+            <IBAN>NLQUIQUIWIGWAM947551</IBAN>
+          </Id>
+        </DbtrAcct>
+      </DrctDbtTxInf>
+      <DrctDbtTxInf>
+        <PmtId>
+          <EndToEndId>MONECOLE REG F13794 PVT 3</EndToEndId>
+        </PmtId>
+        <InstdAmt Ccy="EUR">1236.78</InstdAmt>
+        <DrctDbtTx>
+          <MndtRltdInf>
+            <MndtId>mandate-id-3</MndtId>
+            <DtOfSgntr>2014-01-23</DtOfSgntr>
+          </MndtRltdInf>
+        </DrctDbtTx>
+        <DbtrAgt>
+          <FinInstnId>
+            <Othr>
+              <Id>NOTPROVIDED</Id>
+            </Othr>
+          </FinInstnId>
+        </DbtrAgt>
+        <Dbtr>
+          <Nm>R Epelsteeltje</Nm>
+          <PstlAdr>
+            <Ctry>NL</Ctry>
+            <AdrLine>Spuistraat 42</AdrLine>
+            <AdrLine>75099 Amsterdam</AdrLine>
+          </PstlAdr>
+        </Dbtr>
+        <DbtrAcct>
+          <Id>
+            <IBAN>NLQUIQUIWIGWAM947551</IBAN>
           </Id>
         </DbtrAcct>
       </DrctDbtTxInf>
