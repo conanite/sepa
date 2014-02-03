@@ -23,15 +23,12 @@ Implementations of other messages are welcome.
 
 Add this line to your application's Gemfile:
 
-    gem 'sepa'
+    gem 'sepa', '>=0.0.16', :git => 'https://github.com/joostkuif/sepa.git'
 
 And then execute:
 
     $ bundle
 
-Or install it yourself as:
-
-    $ gem install sepa
 
 ## Usage
 
@@ -75,6 +72,7 @@ software to send the file. Or perhaps you can upload it via their website.
 
 ## History
 
+0.0.16 Make this work with xml SEPA dialect from ABN-AMRO Netherlands, in case you have no BIC
 0.0.15 Ruby 1.8.7 compatibility
 
 ## Contributing
