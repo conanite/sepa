@@ -79,7 +79,7 @@ class Sepa::DirectDebitOrder
     def to_properties opts
       hsh = {
         "group_header.message_identification"  => message_id,
-        "group_header.creation_date_time"      => Time.now,
+        "group_header.creation_date_time"      => Time.now.strftime('%Y-%m-%dT%H:%M:%S'), #1992-02-28T18:30:00
         "group_header.number_of_transactions"  => creditor_payments.inject(0) { |sum, cp| sum + cp.number_of_transactions },
         "group_header.control_sum"             => creditor_payments.inject(0) { |sum, cp| sum + cp.control_sum            },
       }
@@ -236,7 +236,7 @@ class Sepa::DirectDebitOrder
     def to_properties prefix, opts
       bic_tag = ( opts[:pain_008_001_version] == "04" ? "bic_fi" : "bic" )
 
-      if swift.nil?
+      if swift.nil? or swift == ''
         val = { "#{prefix}_account.identification.iban"                           => iban.gsub(/\s/, ''),
                 "#{prefix}_agent.financial_institution_identification.other.id"   => "NOTPROVIDED" }
       else
