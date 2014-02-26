@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-require 'bigdecimal'
 module Sepa
   class Base
     include Aduki::Initializer
@@ -19,9 +18,12 @@ module Sepa
     end
 
     def normalize str
-      return str if str.is_a? Fixnum
-      return ("%.2f" % str) if str.is_a? Float
-      return ("%.2f" % str) if str.is_a? BigDecimal
+      # Integer like Fixnum and Bignum can directly be returned
+      return str if str.is_a? Integer
+      # Check for Numeric to exclude String, but handle Float, BigDecimal, Rational, ... we don't mind.
+      # Kernel#sprintf could handle all to_f implementers, if to_f does not throw an exception
+      return ('%.2f' % str) if str.is_a?(Numeric) && str.respond_to?(:to_f)
+      # For String we need to replace illegal characters by an appropriate alternative
       replacements = {
           'à' => 'a', 'é' => 'e', 'è' => 'e',
           'û' => 'u', 'î' => 'i', 'ô' => 'o', 'ü' => 'u', 'ï' => 'i', 'ö' => 'o',
@@ -29,7 +31,7 @@ module Sepa
           'À' => 'A', 'Á' => 'A', 'Ü' => 'U', 'Ï' => 'I', 'Ö' => 'O', 'ß' => 'ss'
       }
       str = replacements.to_a.
-        inject(str) { |s, kv| s.gsub(kv[0], kv[1]) }.
+        inject(str.to_s) { |s, kv| s.gsub(kv[0], kv[1]) }.
         gsub(/[^a-zA-Z0-9_@ \.,()'+\/\?-]/, '')
     end
 
