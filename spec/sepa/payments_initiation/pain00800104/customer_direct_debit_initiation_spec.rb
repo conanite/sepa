@@ -81,4 +81,21 @@ describe Sepa::PaymentsInitiation::Pain00800104::CustomerDirectDebitInitiation d
     expected.force_encoding(Encoding::UTF_8) if expected.respond_to? :force_encoding
     xml.should == expected
   end
+
+  it "should format time using configured time_format" do
+    short_props = {
+      "group_header.creation_date_time"                                        => Time.new(1992, 02, 28, 18, 30, 22)
+    }
+
+    begin
+      Sepa::Base.time_format = "%Y-%m-%dT%H:%M"
+      xml = Sepa::PaymentsInitiation::Pain00800104::CustomerDirectDebitInitiation.new(short_props).generate_xml(:pain_008_001_version => '04')
+      xml = check_doc_header_04 xml
+      expected = File.read(File.expand_path("../../../expected-grphdr-time-format.xml", __FILE__))
+      expected.force_encoding(Encoding::UTF_8) if expected.respond_to? :force_encoding
+      xml.should == expected
+    ensure
+      Sepa::Base.time_format = "%Y-%m-%dT%H:%M:%SZ"
+    end
+  end
 end

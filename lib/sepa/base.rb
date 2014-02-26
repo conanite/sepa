@@ -3,6 +3,7 @@ module Sepa
   class Base
     include Aduki::Initializer
 
+    @@time_format = "%Y-%m-%dT%H:%M:%SZ"
     @@attribute_defs = Hash.new { |h,k| h[k] = [] }
 
     def build_xml_attributes names
@@ -52,7 +53,7 @@ module Sepa
             end
           end
         elsif meta[:type] == Time
-          v = item.is_a?(String) ? item : item.strftime("%Y-%m-%dT%H:%M:%SZ")
+          v = item.is_a?(String) ? item : item.strftime(@@time_format)
           builder.__send__(meta[:tag], v, attributes)
         elsif meta[:type] == Date
           v = item.is_a?(String) ? item : item.strftime("%Y-%m-%d")
@@ -100,6 +101,10 @@ module Sepa
       attribute_defs << [name, { :tag => tag, :type => :[], :member_type => member_type, :options => options }]
       attr_accessor name
       aduki(name => member_type) if member_type
+    end
+
+    def self.time_format= new_format
+      @@time_format = new_format
     end
   end
 end
