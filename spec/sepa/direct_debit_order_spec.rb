@@ -8,10 +8,11 @@ require 'rational'
 describe Sepa::DirectDebitOrder do
 
   AMOUNTS = {
-      :Float => [1231.31, 1133.33, 1732.32, 1034.34, 1935.35, 1236.36],
-      :BigDecimal => [BigDecimal.new('1231.31'), BigDecimal.new('1133.33'), BigDecimal.new('1732.32'), BigDecimal.new('1034.34'), BigDecimal.new('1935.35'), BigDecimal.new('1236.36')],
-      :Rational => [Rational(123131, 100), Rational(113333, 100), Rational(173232, 100), Rational(103434, 100), Rational(193535, 100), Rational(123636, 100)],
+      :Float => [1231.31, 1133.33, 1732.32, 1034.34, 1935.35, 1236.36, 1235.42, 1236.78],
+      :BigDecimal => [BigDecimal.new('1231.31'), BigDecimal.new('1133.33'), BigDecimal.new('1732.32'), BigDecimal.new('1034.34'), BigDecimal.new('1935.35'), BigDecimal.new('1236.36'), BigDecimal.new('1235.42'), BigDecimal.new('1236.78')],
+      :Rational => [Rational(123131, 100), Rational(113333, 100), Rational(173232, 100), Rational(103434, 100), Rational(193535, 100), Rational(123636, 100), Rational(123542, 100), Rational(123678, 100)],
   }
+
 
   def order sepa_identifier_class, numeric_class = :Float, remittance_information = false
     amounts = AMOUNTS[numeric_class]
@@ -34,13 +35,19 @@ describe Sepa::DirectDebitOrder do
     dd20 = Sepa::DirectDebitOrder::DirectDebit.new debtor2, bank_account2, "MONECOLE REG F13793 PVT 3", amounts[4], "EUR", mandate2, remittance_information ? "Another one" : nil
     dd21 = Sepa::DirectDebitOrder::DirectDebit.new debtor2, bank_account2, "MONECOLE REG F13794 PVT 3", amounts[5], "EUR", mandate2, remittance_information ? "Final transaction" : nil
 
+    bank_account3 = Sepa::DirectDebitOrder::BankAccount.new "NLQUIQUIWIGWAM947551", nil
+    debtor3 = Sepa::DirectDebitOrder::Party.new "R Epelsteeltje", "Spuistraat 42", nil, "75099", "Amsterdam", "Netherlands", "Ron Epelsteeltje", "01234567890", "ron@epelsteeltje.sepa.i.hope.this.works"
+    mandate3 = Sepa::DirectDebitOrder::MandateInformation.new("mandate-id-3", Date.parse("2014-01-23"), "RCUR")
+    dd30 = Sepa::DirectDebitOrder::DirectDebit.new debtor3, bank_account3, "MONECOLE REG F13795 PVT 3", amounts[6], "EUR", mandate3
+    dd31 = Sepa::DirectDebitOrder::DirectDebit.new debtor3, bank_account3, "MONECOLE REG F13796 PVT 3", amounts[7], "EUR", mandate3
+
     sepa_now = Time.local(1992, 2, 28, 18, 30, 0, 0, 0)
     Time.stub(:now).and_return sepa_now
 
     creditor = Sepa::DirectDebitOrder::Party.new "Mon École", "3, Livva de Getamire", nil, "75022", "Paris", "Frankreich", "M. le Directeur", "+33 999 999 999", "directeur@monecole.softify.com"
     creditor_account = Sepa::DirectDebitOrder::BankAccount.new "FRGOO GOOY ADDA 9999 999", "FRGGYELLOW99"
     sepa_identifier = sepa_identifier_class.new "FR123ZZZ010203"
-    payment = Sepa::DirectDebitOrder::CreditorPayment.new creditor, creditor_account, "MONECOLE_PAYMENTS_20130703", Date.parse("2013-07-10"), sepa_identifier, [dd00, dd01, dd10, dd11, dd20, dd21]
+    payment = Sepa::DirectDebitOrder::CreditorPayment.new creditor, creditor_account, "MONECOLE_PAYMENTS_20130703", Date.parse("2013-07-10"), sepa_identifier, [dd00, dd01, dd10, dd11, dd20, dd21, dd30, dd31]
 
     initiator = Sepa::DirectDebitOrder::Party.new "SOFTIFY SARL", "289, Livva de Getamire", nil, "75021", "Paris", "FR", "M. Le Gérant", "+33 111 111 111", "gerant@softify.bigbang"
 

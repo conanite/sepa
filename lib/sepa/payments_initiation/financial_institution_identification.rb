@@ -1,4 +1,5 @@
 require "sepa/payments_initiation/postal_address"
+require "sepa/payments_initiation/generic_financial_identification_1"
 
 class Sepa::PaymentsInitiation::FinancialInstitutionIdentification < Sepa::Base
   definition "Unique and unambiguous identification of a financial institution, as assigned under an internationally recognised or proprietary identification scheme."
@@ -6,5 +7,5 @@ class Sepa::PaymentsInitiation::FinancialInstitutionIdentification < Sepa::Base
   attribute :bic,    "BIC"
   attribute :name,   "Nm"
   attribute :postal_address, "PstlAdr", Sepa::PaymentsInitiation::PostalAddress
-
+  attribute :other, "Othr", Sepa::PaymentsInitiation::GenericFinancialIdentification1
 end
