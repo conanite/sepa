@@ -73,8 +73,18 @@ a message-id.
 The last line returns a string that you will then need to send to your bank one way or another. For example, you might use an EBICS client. Or your bank might provide
 software to send the file. Or perhaps you can upload it via their website.
 
+If your bank expects a particular time format, do this (for example)
+
+    Sepa::Base.time_format = "%Y-%m-%dT%H:%M:%SZ" # btw, this is the default value
+
+This sets a class variable, which is effectively a global, non-thread-safe variable, so this might change in the future, in case we need to support usage where multiple clients need to generate XML with different time format requirements.
+
 ## History
 
+0.0.17
+* Use 'NOTPROVIDED' instead of BIC (requirement from ABN-AMRO Netherlands) (thanks @joostkuif)
+* Support various ruby kinds of number (thanks @TheConstructor)
+* Configurable time format string for time elements (so far, only CstmrDrctDbtInitn/GrpHdr/CreDtTm)
 0.0.16 BigDecimal to avoid floating-point rounding errors (w/thanks to @joostkuif), support RemittanceInformation (w/thanks to @TheConstructor)
 0.0.15 Ruby 1.8.7 compatibility
 
@@ -91,4 +101,4 @@ Other message types are totally welcome.
 ## Contributors
 
 Author: [Conan Dalton](http://www.conandalton.net), aka [conanite](https://github.com/conanite)
-With thanks to [corny](https://github.com/corny), [TheConstructor](https://github.com/TheConstructor), [joostkuif](https://github.com/joostkuif)
+With thanks to [corny](https://github.com/corny), [TheConstructor](https://github.com/TheConstructor), [joostkuif](https://github.com/joostkuif), [digineo](https://github.com/digineo)
