@@ -10,7 +10,7 @@ describe Sepa::DirectDebitOrder do
   AMOUNTS = {
       :Float => [1231.31, 1133.33, 1732.32, 1034.34, 1935.35, 1236.36],
       :BigDecimal => [BigDecimal.new('1231.31'), BigDecimal.new('1133.33'), BigDecimal.new('1732.32'), BigDecimal.new('1034.34'), BigDecimal.new('1935.35'), BigDecimal.new('1236.36')],
-      :Rational => [Rational.reduce(123131, 100), Rational.reduce(113333, 100), Rational.reduce(173232, 100), Rational.reduce(103434, 100), Rational.reduce(193535, 100), Rational.reduce(123636, 100)],
+      :Rational => [Rational(123131, 100), Rational(113333, 100), Rational(173232, 100), Rational(103434, 100), Rational(193535, 100), Rational(123636, 100)],
   }
 
   def order sepa_identifier_class, numeric_class = :Float, remittance_information = false
