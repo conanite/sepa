@@ -1,5 +1,23 @@
 # -*- coding: utf-8 -*-
 module Sepa
+  class StringWithConstraint
+    attr_accessor :string
+
+    def initialize s
+      self.string = constrain s
+    end
+
+    def to_s
+      self.string
+    end
+  end
+
+  class Max70Text < StringWithConstraint
+    def constrain s
+      s[0..70]
+    end
+  end
+
   class Base
     include Aduki::Initializer
 
@@ -36,13 +54,17 @@ module Sepa
         gsub(/[^a-zA-Z0-9_@ \.,()'+\/\?-]/, '')
     end
 
+    def string_type? type_def
+      (type_def == :string) || (type_def.is_a?(Class) && type_def < StringWithConstraint)
+    end
+
     def to_xml builder
       self.class.attribute_defs.each do |name, meta|
         item = self.send(name)
         options = meta[:options] || { }
         attributes = build_xml_attributes options[:attributes]
         next if item == nil || (item.is_a?(Sepa::Base) && item.empty?)
-        if meta[:type] == :string
+        if string_type?(meta[:type])
           builder.__send__(meta[:tag], normalize(item), attributes)
         elsif meta[:type] == :[]
           if meta[:member_type] == nil

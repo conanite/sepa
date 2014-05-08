@@ -1,6 +1,6 @@
 class Sepa::PaymentsInitiation::ContactDetails < Sepa::Base
   attribute :name_prefix  , "NmPrfx"
-  attribute :name         , "Nm"
+  attribute :name         , "Nm",      Sepa::Max70Text
   attribute :phone_number , "PhneNb"
   attribute :mobile_number, "MobNb"
   attribute :fax_number   , "FaxNb"
