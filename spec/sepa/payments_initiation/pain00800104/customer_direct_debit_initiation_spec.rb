@@ -54,7 +54,7 @@ describe Sepa::PaymentsInitiation::Pain00800104::CustomerDirectDebitInitiation d
       "payment_information[0].direct_debit_transaction_information[1].instructed_amount_currency"                                                  => "EUR",
       "payment_information[0].direct_debit_transaction_information[1].direct_debit_transaction.mandate_related_information.mandate_identification" => "mandate-id-1",
       "payment_information[0].direct_debit_transaction_information[1].debtor_agent.financial_institution_identification.bic_fi"                    => "FRQQWIGGA",
-      "payment_information[0].direct_debit_transaction_information[1].debtor.name"                                                                 => "ADAMS/SAMUELMR567892_2345678_3_2345678_4_2345678_5_2345678_6_12345678_7_2345678_should-be-truncated-at-70-chars",
+      "payment_information[0].direct_debit_transaction_information[1].debtor.name"                                                                 => "  ADAMS/SAMUELMR567892_2345678_3_2345678_4_2345678_5_2345678_6_12345678_7_2345678_should-be-truncated-at-70-chars  ",
       "payment_information[0].direct_debit_transaction_information[1].debtor.postal_address.address_line[0]"                                       => "256, Livva de Getamire",
       "payment_information[0].direct_debit_transaction_information[1].debtor.postal_address.post_code"                                             => "75048",
       "payment_information[0].direct_debit_transaction_information[1].debtor.postal_address.town_name"                                             => "PARIS",

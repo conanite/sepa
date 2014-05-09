@@ -14,7 +14,7 @@ module Sepa
 
   class Max70Text < StringWithConstraint
     def constrain s
-      s[0..70]
+      s ? s.to_s.strip[0..70] : ''
     end
   end
 
