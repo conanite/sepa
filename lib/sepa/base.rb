@@ -7,6 +7,10 @@ module Sepa
       self.string = constrain s
     end
 
+    def empty?
+      (self.string == nil) || (self.string == '')
+    end
+
     def to_s
       self.string
     end
@@ -58,12 +62,16 @@ module Sepa
       (type_def == :string) || (type_def.is_a?(Class) && type_def < StringWithConstraint)
     end
 
+    def empty_item? item
+      item == nil || (item.respond_to?(:empty?) && item.empty?)
+    end
+
     def to_xml builder
       self.class.attribute_defs.each do |name, meta|
         item = self.send(name)
         options = meta[:options] || { }
         attributes = build_xml_attributes options[:attributes]
-        next if item == nil || (item.is_a?(Sepa::Base) && item.empty?)
+        next if empty_item? item
         if string_type?(meta[:type])
           builder.__send__(meta[:tag], normalize(item), attributes)
         elsif meta[:type] == :[]
