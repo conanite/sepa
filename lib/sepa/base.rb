@@ -75,7 +75,7 @@ module Sepa
         if string_type?(meta[:type])
           builder.__send__(meta[:tag], normalize(item), attributes)
         elsif meta[:type] == :[]
-          if meta[:member_type] == nil
+          if meta[:member_type] == nil || string_type?(meta[:member_type])
             item.each { |obj| builder.__send__(meta[:tag], normalize(obj), attributes) }
           else
             item.each do |obj|

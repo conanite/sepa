@@ -9,5 +9,5 @@ class Sepa::PaymentsInitiation::PostalAddress < Sepa::Base
   attribute :town_name            , "TwnNm"
   attribute :country_sub_division , "CtySubDvsn"
   attribute :country              , "Ctry"
-  attribute :address_line         , "AdrLine"    , :[]
+  attribute :address_line         , "AdrLine"    , :[], Sepa::Max70Text
 end

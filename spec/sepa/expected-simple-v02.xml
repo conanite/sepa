@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Document>
+  <CstmrDrctDbtInitn>
+    <GrpHdr>
+      <MsgId>MSG0001</MsgId>
+      <CreDtTm>1992-02-28T18:30:00Z</CreDtTm>
+      <NbOfTxs>8</NbOfTxs>
+      <CtrlSum>10775.21</CtrlSum>
+      <InitgPty>
+        <Nm>SOFTIFY SARL</Nm>
+      </InitgPty>
+    </GrpHdr>
+    <PmtInf>
+      <PmtInfId>MONECOLE_PAYMENTS_20130703-FRST</PmtInfId>
+      <PmtMtd>DD</PmtMtd>
+      <NbOfTxs>2</NbOfTxs>
+      <CtrlSum>2766.66</CtrlSum>
+      <PmtTpInf>
+        <SvcLvl>
+          <Cd>SEPA</Cd>
+        </SvcLvl>
+        <LclInstrm>
+          <Cd>CORE</Cd>
+        </LclInstrm>
+        <SeqTp>FRST</SeqTp>
+      </PmtTpInf>
+      <ReqdColltnDt>2013-07-10</ReqdColltnDt>
+      <Cdtr>
+        <Nm>Mon Ecole</Nm>
+        <PstlAdr>
+          <Ctry>FR</Ctry>
+          <AdrLine>3, Livva de Getamire</AdrLine>
+          <AdrLine>75022 Paris</AdrLine>
+        </PstlAdr>
+      </Cdtr>
+      <CdtrAcct>
+        <Id>
+          <IBAN>FRGOOGOOYADDA9999999</IBAN>
+        </Id>
+      </CdtrAcct>
+      <CdtrAgt>
+        <FinInstnId>
+          <BIC>FRGGYELLOW99</BIC>
+        </FinInstnId>
+      </CdtrAgt>
+      <ChrgBr>SLEV</ChrgBr>
+      <CdtrSchmeId>
+        <Id>
+          <PrvtId>
+            <Othr>
+              <Id>FR123ZZZ010203</Id>
+              <SchmeNm>
+                <Prtry>SEPA</Prtry>
+              </SchmeNm>
+            </Othr>
+          </PrvtId>
+        </Id>
+      </CdtrSchmeId>
+      <DrctDbtTxInf>
+        <PmtId>
+          <EndToEndId>MONECOLE REG F13790 PVT 3</EndToEndId>
+        </PmtId>
+        <InstdAmt Ccy="EUR">1732.32</InstdAmt>
+        <DrctDbtTx>
+          <MndtRltdInf>
+            <MndtId>mandate-id-1</MndtId>
+            <DtOfSgntr>2012-01-19</DtOfSgntr>
+          </MndtRltdInf>
+        </DrctDbtTx>
+        <DbtrAgt>
+          <FinInstnId>
+            <BIC>FRQQWIGGA</BIC>
+          </FinInstnId>
+        </DbtrAgt>
+        <Dbtr>
+          <Nm>ADAMS/SAMUELMR</Nm>
+          <PstlAdr>
+            <Ctry>DE</Ctry>
+            <AdrLine>256, Livva de Getamire</AdrLine>
+            <AdrLine>75048 BERLIN</AdrLine>
+          </PstlAdr>
+        </Dbtr>
+        <DbtrAcct>
+          <Id>
+            <IBAN>FRQUIQUIWIGWAM947551</IBAN>
+          </Id>
+        </DbtrAcct>
+      </DrctDbtTxInf>
+      <DrctDbtTxInf>
+        <PmtId>
+          <EndToEndId>MONECOLE REG F13792 PVT 3</EndToEndId>
+        </PmtId>
+        <InstdAmt Ccy="EUR">1034.34</InstdAmt>
+        <DrctDbtTx>
+          <MndtRltdInf>
+            <MndtId>mandate-id-1</MndtId>
+            <DtOfSgntr>2012-01-19</DtOfSgntr>
+          </MndtRltdInf>
+        </DrctDbtTx>
+        <DbtrAgt>
+          <FinInstnId>
+            <BIC>FRQQWIGGA</BIC>
+          </FinInstnId>
+        </DbtrAgt>
+        <Dbtr>
+          <Nm>ADAMS/SAMUELMR</Nm>
+          <PstlAdr>
+            <Ctry>DE</Ctry>
+            <AdrLine>256, Livva de Getamire</AdrLine>
+            <AdrLine>75048 BERLIN</AdrLine>
+          </PstlAdr>
+        </Dbtr>
+        <DbtrAcct>
+          <Id>
+            <IBAN>FRQUIQUIWIGWAM947551</IBAN>
+          </Id>
+        </DbtrAcct>
+      </DrctDbtTxInf>
+    </PmtInf>
+    <PmtInf>
+      <PmtInfId>MONECOLE_PAYMENTS_20130703-RCUR</PmtInfId>
+      <PmtMtd>DD</PmtMtd>
+      <NbOfTxs>6</NbOfTxs>
+      <CtrlSum>8008.55</CtrlSum>
+      <PmtTpInf>
+        <SvcLvl>
+          <Cd>SEPA</Cd>
+        </SvcLvl>
+        <LclInstrm>
+          <Cd>CORE</Cd>
+        </LclInstrm>
+        <SeqTp>RCUR</SeqTp>
+      </PmtTpInf>
+      <ReqdColltnDt>2013-07-10</ReqdColltnDt>
+      <Cdtr>
+        <Nm>Mon Ecole</Nm>
+        <PstlAdr>
+          <Ctry>FR</Ctry>
+          <AdrLine>3, Livva de Getamire</AdrLine>
+          <AdrLine>75022 Paris</AdrLine>
+        </PstlAdr>
+      </Cdtr>
+      <CdtrAcct>
+        <Id>
+          <IBAN>FRGOOGOOYADDA9999999</IBAN>
+        </Id>
+      </CdtrAcct>
+      <CdtrAgt>
+        <FinInstnId>
+          <BIC>FRGGYELLOW99</BIC>
+        </FinInstnId>
+      </CdtrAgt>
+      <ChrgBr>SLEV</ChrgBr>
+      <CdtrSchmeId>
+        <Id>
+          <PrvtId>
+            <Othr>
+              <Id>FR123ZZZ010203</Id>
+              <SchmeNm>
+                <Prtry>SEPA</Prtry>
+              </SchmeNm>
+            </Othr>
+          </PrvtId>
+        </Id>
+      </CdtrSchmeId>
+      <DrctDbtTxInf>
+        <PmtId>
+          <EndToEndId>MONECOLE REG F13789 PVT 3</EndToEndId>
+        </PmtId>
+        <InstdAmt Ccy="EUR">1231.31</InstdAmt>
+        <DrctDbtTx>
+          <MndtRltdInf>
+            <MndtId>mandate-id-0</MndtId>
+            <DtOfSgntr>2010-11-18</DtOfSgntr>
+          </MndtRltdInf>
+        </DrctDbtTx>
+        <DbtrAgt>
+          <FinInstnId>
+            <BIC>FRZZPPKOOKOO</BIC>
+          </FinInstnId>
+        </DbtrAgt>
+        <Dbtr>
+          <Nm>DALTON/CONANMR</Nm>
+          <PstlAdr>
+            <Ctry>FR</Ctry>
+            <AdrLine>64, Livva de Getamire</AdrLine>
+            <AdrLine>30005 RENNES</AdrLine>
+          </PstlAdr>
+        </Dbtr>
+        <DbtrAcct>
+          <Id>
+            <IBAN>FRZIZIPAPARAZZI345789</IBAN>
+          </Id>
+        </DbtrAcct>
+      </DrctDbtTxInf>
+      <DrctDbtTxInf>
+        <PmtId>
+          <EndToEndId>MONECOLE REG F13791 PVT 3</EndToEndId>
+        </PmtId>
+        <InstdAmt Ccy="EUR">1133.33</InstdAmt>
+        <DrctDbtTx>
+          <MndtRltdInf>
+            <MndtId>mandate-id-0</MndtId>
+            <DtOfSgntr>2010-11-18</DtOfSgntr>
+          </MndtRltdInf>
+        </DrctDbtTx>
+        <DbtrAgt>
+          <FinInstnId>
+            <BIC>FRZZPPKOOKOO</BIC>
+          </FinInstnId>
+        </DbtrAgt>
+        <Dbtr>
+          <Nm>DALTON/CONANMR</Nm>
+          <PstlAdr>
+            <Ctry>FR</Ctry>
+            <AdrLine>64, Livva de Getamire</AdrLine>
+            <AdrLine>30005 RENNES</AdrLine>
+          </PstlAdr>
+        </Dbtr>
+        <DbtrAcct>
+          <Id>
+            <IBAN>FRZIZIPAPARAZZI345789</IBAN>
+          </Id>
+        </DbtrAcct>
+      </DrctDbtTxInf>
+      <DrctDbtTxInf>
+        <PmtId>
+          <EndToEndId>MONECOLE REG F13793 PVT 3</EndToEndId>
+        </PmtId>
+        <InstdAmt Ccy="EUR">1935.35</InstdAmt>
+        <DrctDbtTx>
+          <MndtRltdInf>
+            <MndtId>mandate-id-2</MndtId>
+            <DtOfSgntr>2013-06-08</DtOfSgntr>
+          </MndtRltdInf>
+        </DrctDbtTx>
+        <DbtrAgt>
+          <FinInstnId>
+            <BIC>FRQQWIGGA</BIC>
+          </FinInstnId>
+        </DbtrAgt>
+        <Dbtr>
+          <Nm>Mr. James Joyce</Nm>
+          <PstlAdr>
+            <AdrLine>512, Livva de Meet Agir</AdrLine>
+            <AdrLine>75099 LONDON</AdrLine>
+          </PstlAdr>
+        </Dbtr>
+        <DbtrAcct>
+          <Id>
+            <IBAN>FRQUIQUIWIGWAM947551</IBAN>
+          </Id>
+        </DbtrAcct>
+      </DrctDbtTxInf>
+      <DrctDbtTxInf>
+        <PmtId>
+          <EndToEndId>MONECOLE REG F13794 PVT 3</EndToEndId>
+        </PmtId>
+        <InstdAmt Ccy="EUR">1236.36</InstdAmt>
+        <DrctDbtTx>
+          <MndtRltdInf>
+            <MndtId>mandate-id-2</MndtId>
+            <DtOfSgntr>2013-06-08</DtOfSgntr>
+          </MndtRltdInf>
+        </DrctDbtTx>
+        <DbtrAgt>
+          <FinInstnId>
+            <BIC>FRQQWIGGA</BIC>
+          </FinInstnId>
+        </DbtrAgt>
+        <Dbtr>
+          <Nm>Mr. James Joyce</Nm>
+          <PstlAdr>
+            <AdrLine>512, Livva de Meet Agir</AdrLine>
+            <AdrLine>75099 LONDON</AdrLine>
+          </PstlAdr>
+        </Dbtr>
+        <DbtrAcct>
+          <Id>
+            <IBAN>FRQUIQUIWIGWAM947551</IBAN>
+          </Id>
+        </DbtrAcct>
+      </DrctDbtTxInf>
+      <DrctDbtTxInf>
+        <PmtId>
+          <EndToEndId>MONECOLE REG F13795 PVT 3</EndToEndId>
+        </PmtId>
+        <InstdAmt Ccy="EUR">1235.42</InstdAmt>
+        <DrctDbtTx>
+          <MndtRltdInf>
+            <MndtId>mandate-id-3</MndtId>
+            <DtOfSgntr>2014-01-23</DtOfSgntr>
+          </MndtRltdInf>
+        </DrctDbtTx>
+        <DbtrAgt>
+          <FinInstnId>
+            <Othr>
+              <Id>NOTPROVIDED</Id>
+            </Othr>
+          </FinInstnId>
+        </DbtrAgt>
+        <Dbtr>
+          <Nm>R Epelsteeltje</Nm>
+          <PstlAdr>
+            <Ctry>NL</Ctry>
+            <AdrLine>Spuistraat 42</AdrLine>
+            <AdrLine>75099 Amsterdam</AdrLine>
+          </PstlAdr>
+        </Dbtr>
+        <DbtrAcct>
+          <Id>
+            <IBAN>NLQUIQUIWIGWAM947551</IBAN>
+          </Id>
+        </DbtrAcct>
+      </DrctDbtTxInf>
+      <DrctDbtTxInf>
+        <PmtId>
+          <EndToEndId>MONECOLE REG F13796 PVT 3</EndToEndId>
+        </PmtId>
+        <InstdAmt Ccy="EUR">1236.78</InstdAmt>
+        <DrctDbtTx>
+          <MndtRltdInf>
+            <MndtId>mandate-id-3</MndtId>
+            <DtOfSgntr>2014-01-23</DtOfSgntr>
+          </MndtRltdInf>
+        </DrctDbtTx>
+        <DbtrAgt>
+          <FinInstnId>
+            <Othr>
+              <Id>NOTPROVIDED</Id>
+            </Othr>
+          </FinInstnId>
+        </DbtrAgt>
+        <Dbtr>
+          <Nm>R Epelsteeltje</Nm>
+          <PstlAdr>
+            <Ctry>NL</Ctry>
+            <AdrLine>Spuistraat 42</AdrLine>
+            <AdrLine>75099 Amsterdam</AdrLine>
+          </PstlAdr>
+        </Dbtr>
+        <DbtrAcct>
+          <Id>
+            <IBAN>NLQUIQUIWIGWAM947551</IBAN>
+          </Id>
+        </DbtrAcct>
+      </DrctDbtTxInf>
+    </PmtInf>
+  </CstmrDrctDbtInitn>
+</Document>

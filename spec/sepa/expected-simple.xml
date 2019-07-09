@@ -63,6 +63,9 @@
         <PmtId>
           <EndToEndId>MONECOLE REG F13789 PVT 3</EndToEndId>
         </PmtId>
+        <PmtTpInf>
+          <SeqTp>FRST</SeqTp>
+        </PmtTpInf>
         <InstdAmt Ccy="EUR">1231.31</InstdAmt>
         <DrctDbtTx>
           <MndtRltdInf>
@@ -80,7 +83,7 @@
             <PstCd>30005</PstCd>
             <TwnNm>RENNES</TwnNm>
             <Ctry>FR</Ctry>
-            <AdrLine>64, Livva de Getamire</AdrLine>
+            <AdrLine>64, Livva de Getamire 2345678 30 345678 40 345678 50 345678 60 345678 7</AdrLine>
           </PstlAdr>
           <CtctDtls>
             <Nm>Conan DALTON</Nm>
@@ -99,7 +102,7 @@
           <EndToEndId>MONECOLE REG F13790 PVT 3</EndToEndId>
         </PmtId>
         <PmtTpInf>
-          <SeqTp>FRST</SeqTp>
+          <SeqTp>RCUR</SeqTp>
         </PmtTpInf>
         <InstdAmt Ccy="EUR">1732.32</InstdAmt>
         <DrctDbtTx>

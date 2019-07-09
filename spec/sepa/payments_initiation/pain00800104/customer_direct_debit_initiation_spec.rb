@@ -35,12 +35,13 @@ describe Sepa::PaymentsInitiation::Pain00800104::CustomerDirectDebitInitiation d
       "payment_information[0].creditor_account.identification.iban"            => "FRGOOGOOYADDA9999999",
       "payment_information[0].creditor_agent.financial_institution_identification.bic_fi"                                                          => "FRGGYELLOW99",
       "payment_information[0].direct_debit_transaction_information[0].payment_identification.end_to_end_identification"                            => "MONECOLE REG F13789 PVT 3",
+      "payment_information[0].direct_debit_transaction_information[0].payment_type_information.sequence_type"                                      => "FRST",
       "payment_information[0].direct_debit_transaction_information[0].instructed_amount"                                                           => "1231.31",
       "payment_information[0].direct_debit_transaction_information[0].instructed_amount_currency"                                                  => "EUR",
       "payment_information[0].direct_debit_transaction_information[0].direct_debit_transaction.mandate_related_information.mandate_identification" => "mandate-id-0",
       "payment_information[0].direct_debit_transaction_information[0].debtor_agent.financial_institution_identification.bic_fi"                    => "FRZZPPKOOKOO",
       "payment_information[0].direct_debit_transaction_information[0].debtor.name"                                                                 => "DALTON/CONANMR",
-      "payment_information[0].direct_debit_transaction_information[0].debtor.postal_address.address_line[0]"                                       => "64, Livva de Getamire",
+      "payment_information[0].direct_debit_transaction_information[0].debtor.postal_address.address_line[0]"                                       => "64, Livva de Getamire 2345678 30 345678 40 345678 50 345678 60 345678 70 345678 80",
       "payment_information[0].direct_debit_transaction_information[0].debtor.postal_address.post_code"                                             => "30005",
       "payment_information[0].direct_debit_transaction_information[0].debtor.postal_address.town_name"                                             => "RENNES",
       "payment_information[0].direct_debit_transaction_information[0].debtor.postal_address.country"                                               => "FR",
@@ -49,7 +50,7 @@ describe Sepa::PaymentsInitiation::Pain00800104::CustomerDirectDebitInitiation d
       "payment_information[0].direct_debit_transaction_information[0].debtor.contact_details.email_address"                                        => "conan@dalton.sepa.i.hope.this.works",
       "payment_information[0].direct_debit_transaction_information[0].debtor_account.identification.iban"                                          => "FRZIZIPAPARAZZI345789",
       "payment_information[0].direct_debit_transaction_information[1].payment_identification.end_to_end_identification"                            => "MONECOLE REG F13790 PVT 3",
-      "payment_information[0].direct_debit_transaction_information[1].payment_type_information.sequence_type"                                      => "FRST",
+      "payment_information[0].direct_debit_transaction_information[1].payment_type_information.sequence_type"                                      => "RCUR",
       "payment_information[0].direct_debit_transaction_information[1].instructed_amount"                                                           => "1732.32",
       "payment_information[0].direct_debit_transaction_information[1].instructed_amount_currency"                                                  => "EUR",
       "payment_information[0].direct_debit_transaction_information[1].direct_debit_transaction.mandate_related_information.mandate_identification" => "mandate-id-1",
@@ -77,6 +78,7 @@ describe Sepa::PaymentsInitiation::Pain00800104::CustomerDirectDebitInitiation d
   it "should produce xml corresponding to the given inputs" do
     xml = Sepa::PaymentsInitiation::Pain00800104::CustomerDirectDebitInitiation.new(props).generate_xml(:pain_008_001_version => '04')
     xml = check_doc_header_04 xml
+
     expected = File.read(File.expand_path("../../../expected-simple.xml", __FILE__))
     expected.force_encoding(Encoding::UTF_8) if expected.respond_to? :force_encoding
     xml.should == expected
