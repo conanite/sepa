@@ -50,28 +50,69 @@ a message-id.
 
       for(each dd in direct_debits) do | ... |
         bank_account = Sepa::DirectDebitOrder::BankAccount.new dd.iban, dd.bic
-        debtor = Sepa::DirectDebitOrder::Party.new dd.name, dd.addr, nil, dd.postcode, dd.town, dd.country, dd.contact, dd.phone, dd.email
-        mandate = Sepa::DirectDebitOrder::MandateInformation.new dd.mandate_id, dd.sig_date, dd.sequence_type
-        dd_list << Sepa::DirectDebitOrder::DirectDebit.new debtor, bank_account, dd.end_to_end_id, dd.amount, "EUR", mandate
+
+        debtor = Sepa::DirectDebitOrder::Party.new(dd.name,
+                                                   dd.addr,
+                                                   nil,
+                                                   dd.postcode,
+                                                   dd.town,
+                                                   dd.country,
+                                                   dd.contact,
+                                                   dd.phone,
+                                                   dd.email)
+
+        mandate = Sepa::DirectDebitOrder::MandateInformation.new(dd.mandate_id,
+                                                                 dd.sig_date,
+                                                                 dd.sequence_type)
+
+        dd_list << Sepa::DirectDebitOrder::DirectDebit.new(debtor,
+                                                           bank_account,
+                                                           dd.end_to_end_id,
+                                                           dd.amount,
+                                                           "EUR",
+                                                           mandate)
       end
 
-      creditor = Sepa::DirectDebitOrder::Party.new creditor.name, creditor.address, nil, creditor.postcode, creditor.town, creditor.country, creditor.contact, creditor.phone, creditor.email
+      creditor = Sepa::DirectDebitOrder::Party.new(creditor.name,
+                                                   creditor.address,
+                                                   nil,
+                                                   creditor.postcode,
+                                                   creditor.town,
+                                                   creditor.country,
+                                                   creditor.contact,
+                                                   creditor.phone,
+                                                   creditor.email)
 
-      creditor_account = Sepa::DirectDebitOrder::BankAccount.new creditor.iban, creditor.bic
+      creditor_account = Sepa::DirectDebitOrder::BankAccount.new(creditor.iban,
+                                                                 creditor.bic)
 
       sepa_identifier = Sepa::DirectDebitOrder::PrivateSepaIdentifier.new creditor.sepa_identifier
 
-      payment = Sepa::DirectDebitOrder::CreditorPayment.new creditor, creditor_account, payment_identifier, collection_date, sepa_identifier, dd_list
+      payment = Sepa::DirectDebitOrder::CreditorPayment.new(creditor,
+                                                            creditor_account,
+                                                            payment_identifier,
+                                                            collection_date,
+                                                            sepa_identifier,
+                                                            dd_list)
 
-      initiator = Sepa::DirectDebitOrder::Party.new initiator.identifier, initiator.address, nil, initiator.postcode, initiator.town, initiator.country, initiator.contact, initiator.phone, initiator.email
+      initiator = Sepa::DirectDebitOrder::Party.new(initiator.identifier,
+                                                    initiator.address,
+                                                    nil,
+                                                    initiator.postcode,
+                                                    initiator.town,
+                                                    initiator.country,
+                                                    initiator.contact,
+                                                    initiator.phone,
+                                                    initiator.email)
 
-      order = Sepa::DirectDebitOrder::Order.new message_id, initiator, [payment]
+      order = Sepa::DirectDebitOrder::Order.new(message_id,
+                                                initiator,
+                                                [payment])
 
       order.to_xml pain_008_001_version: "04"
     end
 
-The last line returns a string that you will then need to send to your bank one way or another. For example, you might use an EBICS client. Or your bank might provide
-software to send the file. Or perhaps you can upload it via their website.
+The last line returns a string that you will then need to send to your bank one way or another. For example, you might use an EBICS client. Or your bank might provide software to send the file. Or perhaps you can upload it via their website. If you live in France, you could print it out, send it to your bank by registered post, and they will type it in again on their end and execute the order.
 
 If your bank expects a particular time format, do this (for example)
 
