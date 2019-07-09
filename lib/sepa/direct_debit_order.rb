@@ -30,7 +30,7 @@ class Sepa::DirectDebitOrder
 
     def county_code name
       return "" if blank?(name)
-      name = name.upcase
+      name = name.upcase.strip
       return name if name.match(/^[A-Z]{2}$/)
       country = ISO3166::Country.find_country_by_name(name)
       country ? country.alpha2 : ""
@@ -130,7 +130,7 @@ class Sepa::DirectDebitOrder
           hsh["#{prefix}.postal_address.post_code"]       = postcode       unless blank? postcode
           hsh["#{prefix}.postal_address.town_name"]       = town           unless blank? town
         end
-        hsh["#{prefix}.postal_address.country"]         = cc             unless blank? cc
+        hsh["#{prefix}.postal_address.country"]           = cc             unless blank? cc
 
         unless opts[:pain_008_001_version] == "02"
           hsh["#{prefix}.contact_details.name"]           = contact_name   unless blank? contact_name

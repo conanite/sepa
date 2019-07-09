@@ -44,7 +44,8 @@ describe Sepa::DirectDebitOrder do
     sepa_now = Time.local(1992, 2, 28, 18, 30, 0, 0, 0)
     Time.stub(:now).and_return sepa_now
 
-    creditor = Sepa::DirectDebitOrder::Party.new "Mon École", "3, Livva de Getamire", nil, "75022", "Paris", "Frankreich", "M. le Directeur", "+33 999 999 999", "directeur@monecole.softify.com"
+    # leading/trailing whitespace breaks country recognition
+    creditor = Sepa::DirectDebitOrder::Party.new "Mon École", "3, Livva de Getamire", nil, "75022", "Paris", " Frankreich ", "M. le Directeur", "+33 999 999 999", "directeur@monecole.softify.com"
     creditor_account = Sepa::DirectDebitOrder::BankAccount.new "FRGOO GOOY ADDA 9999 999", "FRGGYELLOW99"
     sepa_identifier = sepa_identifier_class.new "FR123ZZZ010203"
     payment = Sepa::DirectDebitOrder::CreditorPayment.new creditor, creditor_account, "MONECOLE_PAYMENTS_20130703", Date.parse("2013-07-10"), sepa_identifier, [dd00, dd01, dd10, dd11, dd20, dd21, dd30, dd31]
