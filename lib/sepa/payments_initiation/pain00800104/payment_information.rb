@@ -1,7 +1,7 @@
 require "sepa/payments_initiation/pain00800104/direct_debit_transaction_information"
 
 class Sepa::PaymentsInitiation::Pain00800104::PaymentInformation < Sepa::Base
-  attribute :payment_information_identification  , "PmtInfId"
+  attribute :payment_information_identification  , "PmtInfId"    , Sepa::Max35Text
   attribute :payment_method                      , "PmtMtd"
   attribute :batch_booking                       , "BtchBookg"
   attribute :number_of_transactions              , "NbOfTxs"

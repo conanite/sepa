@@ -83,7 +83,7 @@
             <PstCd>30005</PstCd>
             <TwnNm>RENNES</TwnNm>
             <Ctry>FR</Ctry>
-            <AdrLine>64, Livva de Getamire 2345678 30 345678 40 345678 50 345678 60 345678 7</AdrLine>
+            <AdrLine>64, Livva de Getamire 345678 30 345678 40 345678 50 345678 60 345678 7</AdrLine>
           </PstlAdr>
           <CtctDtls>
             <Nm>Conan DALTON</Nm>
@@ -116,7 +116,7 @@
           </FinInstnId>
         </DbtrAgt>
         <Dbtr>
-          <Nm>ADAMS/SAMUELMR567892_2345678_3_2345678_4_2345678_5_2345678_6_12345678_7</Nm>
+          <Nm>ADAMS/SAMUELMR567892_2345678_3_2345678_4_2345678_5_2345678_6_2345678_7</Nm>
           <PstlAdr>
             <PstCd>75048</PstCd>
             <TwnNm>PARIS</TwnNm>
