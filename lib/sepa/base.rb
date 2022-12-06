@@ -16,6 +16,12 @@ module Sepa
     end
   end
 
+  class Max140Text < StringWithConstraint
+    def constrain s
+      s ? s.to_s.strip[0...140] : ''
+    end
+  end
+
   class Max70Text < StringWithConstraint
     def constrain s
       s ? s.to_s.strip[0...70] : ''
